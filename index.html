@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Auto-Moto École Villars — Permis B, Moto, AAC — Denain & Petite-Forêt</title>
-<meta name="description" content="Auto-Moto École Villars : permis voiture, moto, AAC, BSR, BE. Deux agences à Denain et Petite-Forêt dans le Nord. Plus de 20 ans d'expérience." />
+<title>Auto-Moto École Villars — Permis B, 2 Roues, BE — Denain & Petite-Forêt</title>
+<meta name="description" content="Auto-Moto École Villars : permis voiture, 2 roues, BE, AAC. Deux agences à Denain et Petite-Forêt. Plus de 40 ans d'expérience dans le Denaisis." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,6 +54,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     transition: color 0.2s ease;
+    cursor: pointer;
   }
   .nav-link:hover { color: #CC1F1F; }
   .nav-link.active { color: #CC1F1F; }
@@ -66,6 +67,47 @@
     height: 3px;
     background-color: #CC1F1F;
   }
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #1A1A1A;
+    min-width: 220px;
+    margin-top: 8px;
+    border-top: 3px solid #CC1F1F;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: all 0.2s ease;
+    z-index: 50;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 0.85rem 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #2a2a2a;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .nav-dropdown-menu a:hover { background: #CC1F1F; color: #fff; }
+  .nav-dropdown-menu a:last-child { border-bottom: none; }
+  .chevron {
+    display: inline-block;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+  }
+  .nav-dropdown:hover .chevron { transform: rotate(180deg); }
   .page-section { display: none; }
   .page-section.active {
     display: block;
@@ -86,6 +128,7 @@
     display: inline-block;
     transition: background-color 0.2s ease;
     border: 2px solid #CC1F1F;
+    cursor: pointer;
   }
   .btn-primary:hover { background-color: #A81818; border-color: #A81818; }
   .btn-outline {
@@ -99,6 +142,7 @@
     display: inline-block;
     border: 2px solid #1A1A1A;
     transition: all 0.2s ease;
+    cursor: pointer;
   }
   .btn-outline:hover { background-color: #1A1A1A; color: white; }
   .section-title {
@@ -154,38 +198,16 @@
     flex-shrink: 0;
     margin-top: 0.15rem;
   }
-  .tarif-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .tarif-table th {
-    background-color: #1A1A1A;
-    color: white;
-    text-align: left;
-    padding: 0.875rem 1rem;
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-  .tarif-table td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #E5E5E5;
-    font-size: 0.95rem;
-  }
-  .tarif-table tr:nth-child(even) { background-color: #FAFAFA; }
-  .tarif-table tr:hover { background-color: #F5F5F5; }
   .horaire-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
   }
   .horaire-table th, .horaire-table td {
-    padding: 0.75rem 1rem;
+    padding: 0.7rem 0.85rem;
     border: 1px solid #E5E5E5;
     text-align: left;
-    font-size: 0.93rem;
+    font-size: 0.9rem;
   }
   .horaire-table th {
     background-color: #1A1A1A;
@@ -194,12 +216,12 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
   .horaire-table td:first-child {
     font-weight: 600;
     background-color: #F5F5F5;
-    width: 120px;
+    width: 110px;
   }
   .badge {
     display: inline-block;
@@ -269,19 +291,110 @@
     opacity: 1;
     transform: translateY(0);
   }
-  .tariff-banner {
+  .formation-card {
+    background: white;
+    border: 1px solid #E5E5E5;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .formation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  }
+  .vehicle-tile {
+    background: white;
+    border: 1px solid #E5E5E5;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .vehicle-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+  }
+  /* Carrousel */
+  .carousel-track {
+    display: flex;
+    gap: 1rem;
+    animation: scrollX 40s linear infinite;
+    width: max-content;
+  }
+  .carousel:hover .carousel-track { animation-play-state: paused; }
+  .carousel-item {
+    flex-shrink: 0;
+    width: 320px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+  .carousel-item .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: white;
+    padding: 1rem 0.85rem 0.65rem;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+  @keyframes scrollX {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  /* Avis */
+  .avis-card {
+    background: white;
+    border: 1px solid #E5E5E5;
+    padding: 1.5rem;
+    position: relative;
+  }
+  .avis-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    color: #CC1F1F;
+    line-height: 1;
+  }
+  .avis-stars { color: #F5B400; letter-spacing: 2px; }
+  /* Schema BE */
+  .schema-row {
+    display: flex;
+    align-items: stretch;
+    background: white;
+    border: 1px solid #E5E5E5;
+    overflow: hidden;
+  }
+  .schema-cond {
+    flex: 1;
+    padding: 1rem 1.2rem;
+    font-size: 0.93rem;
+  }
+  .schema-result {
+    width: 180px;
+    flex-shrink: 0;
     background: #1A1A1A;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.75rem;
+    font-size: 0.9rem;
   }
-  .tariff-banner strong { color: #CC1F1F; }
+  .schema-result.red { background: #CC1F1F; }
   @media (max-width: 768px) {
     .forfait-price { font-size: 1.85rem; }
     .section-title { margin-bottom: 1.25rem; padding-bottom: 0.5rem; font-size: 1.5rem !important; }
     .section-title::after { width: 48px; height: 3px; }
-    .tariff-banner { font-size: 0.72rem; padding: 0.4rem 0.75rem; line-height: 1.3; }
     .btn-primary, .btn-outline { padding: 0.75rem 1.5rem; font-size: 0.9rem; width: 100%; text-align: center; }
     .info-box { padding: 0.85rem 1rem; font-size: 0.88rem; }
     .icon-circle { width: 52px; height: 52px; margin-bottom: 0.75rem; }
@@ -290,24 +403,17 @@
     .forfait-list li { padding: 0.4rem 0; font-size: 0.9rem; }
     .horaire-table th, .horaire-table td { padding: 0.55rem 0.6rem; font-size: 0.82rem; }
     .horaire-table td:first-child { width: 90px; }
-    .tarif-table th, .tarif-table td { padding: 0.6rem 0.65rem; font-size: 0.85rem; }
     .form-input { padding: 0.65rem 0.85rem; font-size: 0.92rem; }
     .form-label { font-size: 0.82rem; }
     .badge { font-size: 0.68rem; padding: 0.22rem 0.55rem; }
+    .schema-row { flex-direction: column; }
+    .schema-result { width: 100%; padding: 0.65rem; }
+    .carousel-item { width: 240px; height: 170px; }
     h1.font-heading, h1 { letter-spacing: 0; }
-  }
-
-  @media (max-width: 480px) {
-    .tariff-banner { font-size: 0.68rem; }
   }
 </style>
 </head>
 <body>
-
-<!-- Top utility bar -->
-<div class="tariff-banner">
-  Tarifs en vigueur valables jusqu'au <strong>31/08/2026</strong> &nbsp;·&nbsp; Paiement en plusieurs fois sans frais
-</div>
 
 <!-- HEADER / NAV -->
 <header class="bg-villars-black text-white sticky top-0 z-50 shadow-md">
@@ -325,10 +431,22 @@
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-8">
+      <nav class="hidden lg:flex items-center gap-7">
         <a href="#" data-page="accueil" class="page-link nav-link active">Accueil</a>
-        <a href="#" data-page="permis-b" class="page-link nav-link">Permis B</a>
-        <a href="#" data-page="permis-moto" class="page-link nav-link">Permis Moto</a>
+
+        <div class="nav-dropdown">
+          <a href="#" data-page="nos-formations" class="page-link nav-link inline-flex items-center">
+            Nos Formations
+            <svg class="chevron w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="#" data-page="permis-b" class="page-link">Permis B</a>
+            <a href="#" data-page="permis-2-roues" class="page-link">Formations 2 Roues</a>
+            <a href="#" data-page="permis-be" class="page-link">Permis BE (Remorque)</a>
+          </div>
+        </div>
+
+        <a href="#" data-page="nos-vehicules" class="page-link nav-link">Nos Véhicules</a>
         <a href="#" data-page="horaires" class="page-link nav-link">Horaires & Agences</a>
         <a href="#" data-page="contact" class="page-link nav-link">Contact</a>
       </nav>
@@ -347,10 +465,17 @@
     </div>
 
     <!-- Mobile nav -->
-    <nav id="mobileNav" class="hidden lg:hidden pb-4 border-t border-gray-700 pt-4">
+    <nav id="mobileNav" class="hidden lg:hidden pb-4 border-t border-gray-700 pt-3">
       <a href="#" data-page="accueil" class="page-link block py-3 text-white border-b border-gray-700 font-heading uppercase tracking-wider">Accueil</a>
-      <a href="#" data-page="permis-b" class="page-link block py-3 text-white border-b border-gray-700 font-heading uppercase tracking-wider">Permis B</a>
-      <a href="#" data-page="permis-moto" class="page-link block py-3 text-white border-b border-gray-700 font-heading uppercase tracking-wider">Permis Moto</a>
+      <div class="border-b border-gray-700">
+        <a href="#" data-page="nos-formations" class="page-link block py-3 text-white font-heading uppercase tracking-wider">Nos Formations</a>
+        <div class="pl-4 pb-2">
+          <a href="#" data-page="permis-b" class="page-link block py-2 text-gray-300 text-sm">› Permis B</a>
+          <a href="#" data-page="permis-2-roues" class="page-link block py-2 text-gray-300 text-sm">› Formations 2 Roues</a>
+          <a href="#" data-page="permis-be" class="page-link block py-2 text-gray-300 text-sm">› Permis BE (Remorque)</a>
+        </div>
+      </div>
+      <a href="#" data-page="nos-vehicules" class="page-link block py-3 text-white border-b border-gray-700 font-heading uppercase tracking-wider">Nos Véhicules</a>
       <a href="#" data-page="horaires" class="page-link block py-3 text-white border-b border-gray-700 font-heading uppercase tracking-wider">Horaires & Agences</a>
       <a href="#" data-page="contact" class="page-link block py-3 text-white font-heading uppercase tracking-wider">Contact</a>
     </nav>
@@ -371,52 +496,45 @@
     <div class="absolute inset-0 hero-overlay"></div>
     <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
       <div class="max-w-2xl text-white">
-        <span class="badge badge-red mb-3 md:mb-4">Depuis plus de 20 ans</span>
+        <span class="badge badge-red mb-3 md:mb-4">Depuis plus de 40 ans</span>
         <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-3 md:mb-4">
-          Votre permis de conduire avec l'École Villars
+          Votre formation à la conduite avec l'Auto-École Villars
         </h1>
         <p class="text-base md:text-xl mb-6 md:mb-8 text-gray-100 font-light">
-          2 agences à Denain et Petite-Forêt — Une équipe de moniteurs expérimentés à votre service depuis plus de 20 ans.
+          2 agences à Denain et Petite-Forêt — Une équipe d'enseignants expérimentés à votre service depuis plus de 40 ans.
         </p>
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-          <a href="#" data-page="permis-b" class="page-link btn-primary">Voir nos forfaits</a>
+          <a href="#" data-page="nos-formations" class="page-link btn-primary">Voir nos formations</a>
           <a href="#" data-page="contact" class="page-link btn-outline" style="color: white; border-color: white;">Nous contacter</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 4 AVANTAGES -->
+  <!-- 3 AVANTAGES -->
   <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
         <div class="text-center">
           <div class="icon-circle">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <h3 class="font-heading text-xl font-semibold uppercase mb-2">Formations agréées</h3>
+          <h3 class="font-heading text-xl font-semibold uppercase mb-2">Établissements agréés</h3>
           <p class="text-gray-600 text-sm">Agréments préfectoraux E1605900200 et E2005900190</p>
         </div>
         <div class="text-center">
           <div class="icon-circle">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
-          <h3 class="font-heading text-xl font-semibold uppercase mb-2">2 agences proches</h3>
-          <p class="text-gray-600 text-sm">Denain et Petite-Forêt, dans le Nord</p>
+          <h3 class="font-heading text-xl font-semibold uppercase mb-2">Denain & Petite-Forêt</h3>
+          <p class="text-gray-600 text-sm">2 agences proches du centre d'examen de Prouvy</p>
         </div>
         <div class="text-center">
           <div class="icon-circle">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-heading text-xl font-semibold uppercase mb-2">Paiement en plusieurs fois</h3>
-          <p class="text-gray-600 text-sm">Facilités de paiement 4x ou 6x sans frais</p>
-        </div>
-        <div class="text-center">
-          <div class="icon-circle">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-          </div>
-          <h3 class="font-heading text-xl font-semibold uppercase mb-2">Moniteurs expérimentés</h3>
-          <p class="text-gray-600 text-sm">Une équipe diplômée, pédagogue et patiente</p>
+          <h3 class="font-heading text-xl font-semibold uppercase mb-2">Facilités de paiement</h3>
+          <p class="text-gray-600 text-sm">Règlements en 4, 5 ou 6 fois sans frais</p>
         </div>
       </div>
     </div>
@@ -432,27 +550,24 @@
           <div class="h-44 md:h-56 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80" alt="Agence Villars Denain" class="w-full h-full object-cover" />
           </div>
-          <div class="p-8">
-          <div class="flex items-start justify-between mb-4">
-            <h3 class="font-heading text-2xl font-bold uppercase">Agence de Denain</h3>
-            <span class="badge">Siège</span>
-          </div>
-          <div class="space-y-3 text-gray-700">
-            <p class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              89 rue de Villars, 59220 Denain
-            </p>
-            <p class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-              <a href="tel:0327432123" class="font-semibold text-villars-red hover:underline">03.27.43.21.23</a>
-            </p>
-            <p class="flex items-start gap-3 text-sm">
-              <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>Lun–Jeu : 14h–19h30 (mer/jeu aussi 10h–12h)<br/>Ven–Sam : 10h–12h & 14h–17h</span>
-            </p>
-            <p class="text-xs text-gray-500 pt-2 border-t border-gray-200">Agrément E1605900200</p>
-          </div>
-          <a href="#" data-page="horaires" class="page-link inline-block mt-4 text-villars-red font-heading uppercase font-semibold text-sm tracking-wider hover:underline">Voir les horaires détaillés &rarr;</a>
+          <div class="p-6 md:p-8">
+            <h3 class="font-heading text-2xl font-bold uppercase mb-4">Agence de Denain</h3>
+            <div class="space-y-3 text-gray-700">
+              <p class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                89 rue de Villars, 59220 Denain
+              </p>
+              <p class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <a href="tel:0327432123" class="font-semibold text-villars-red hover:underline">03.27.43.21.23</a>
+              </p>
+              <p class="flex items-start gap-3 text-sm">
+                <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Ouvert du Lundi au Samedi</span>
+              </p>
+              <p class="text-xs text-gray-500 pt-2 border-t border-gray-200">Agrément E1605900200</p>
+            </div>
+            <a href="#" data-page="horaires" class="page-link inline-block mt-4 text-villars-red font-heading uppercase font-semibold text-sm tracking-wider hover:underline">Voir les horaires détaillés &rarr;</a>
           </div>
         </div>
 
@@ -460,27 +575,24 @@
           <div class="h-44 md:h-56 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80" alt="Agence Villars Petite-Forêt" class="w-full h-full object-cover" />
           </div>
-          <div class="p-8">
-          <div class="flex items-start justify-between mb-4">
-            <h3 class="font-heading text-2xl font-bold uppercase">Agence de Petite-Forêt</h3>
-            <span class="badge">Bureau</span>
-          </div>
-          <div class="space-y-3 text-gray-700">
-            <p class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              15 rue Hyacinthe Mars, 59494 Petite-Forêt
-            </p>
-            <p class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-              <a href="tel:0327352236" class="font-semibold text-villars-red hover:underline">03.27.35.22.36</a>
-            </p>
-            <p class="flex items-start gap-3 text-sm">
-              <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>Mar : 17h–19h30 / Mer : 14h–19h30<br/>Jeu : 17h–19h30 / Sam : 10h–12h & 13h–15h</span>
-            </p>
-            <p class="text-xs text-gray-500 pt-2 border-t border-gray-200">Agrément E2005900190</p>
-          </div>
-          <a href="#" data-page="horaires" class="page-link inline-block mt-4 text-villars-red font-heading uppercase font-semibold text-sm tracking-wider hover:underline">Voir les horaires détaillés &rarr;</a>
+          <div class="p-6 md:p-8">
+            <h3 class="font-heading text-2xl font-bold uppercase mb-4">Agence de Petite-Forêt</h3>
+            <div class="space-y-3 text-gray-700">
+              <p class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                15 rue Hyacinthe Mars, 59494 Petite-Forêt
+              </p>
+              <p class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <a href="tel:0327352236" class="font-semibold text-villars-red hover:underline">03.27.35.22.36</a>
+              </p>
+              <p class="flex items-start gap-3 text-sm">
+                <svg class="w-5 h-5 text-villars-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Ouvert le mardi, mercredi, jeudi & samedi</span>
+              </p>
+              <p class="text-xs text-gray-500 pt-2 border-t border-gray-200">Agrément E2005900190</p>
+            </div>
+            <a href="#" data-page="horaires" class="page-link inline-block mt-4 text-villars-red font-heading uppercase font-semibold text-sm tracking-wider hover:underline">Voir les horaires détaillés &rarr;</a>
           </div>
         </div>
 
@@ -493,11 +605,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        <div class="reveal">
+        <div class="reveal order-2 lg:order-1">
           <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1000&q=80" alt="Cours de conduite" class="w-full h-64 md:h-[500px] object-cover" />
         </div>
 
-        <div>
+        <div class="order-1 lg:order-2">
           <h2 class="section-title text-3xl">Pourquoi nous choisir ?</h2>
           <div class="space-y-8 reveal">
 
@@ -506,8 +618,8 @@
               <div>
                 <h3 class="font-heading text-xl uppercase font-semibold mb-2">Une école de proximité</h3>
                 <p class="text-gray-600 leading-relaxed">
-                  Établie depuis plus de 20 ans dans la région du Hainaut, l'École Villars vous accueille dans une ambiance conviviale et familiale.
-                  Nous connaissons votre quartier, vos routes et les itinéraires d'examen.
+                  Établie depuis plus de 40 ans à Denain, l'auto-école Villars vous accueille dans une ambiance conviviale et familiale.
+                  Depuis 2020, nous vous proposons également une agence dans la commune de Petite-Forêt.
                 </p>
               </div>
             </div>
@@ -517,8 +629,8 @@
               <div>
                 <h3 class="font-heading text-xl uppercase font-semibold mb-2">Une pédagogie sur mesure</h3>
                 <p class="text-gray-600 leading-relaxed">
-                  Évaluation de départ, suivi personnalisé, livret pédagogique : chaque élève avance à son rythme.
-                  Nos moniteurs adaptent leur méthode à votre niveau et à vos objectifs.
+                  Évaluation de départ, suivi personnalisé, livret pédagogique numérique : chaque élève avance à son rythme.
+                  Nos enseignants adaptent leur méthode à votre niveau et à vos objectifs.
                 </p>
               </div>
             </div>
@@ -528,8 +640,10 @@
               <div>
                 <h3 class="font-heading text-xl uppercase font-semibold mb-2">Toutes les catégories</h3>
                 <p class="text-gray-600 leading-relaxed">
-                  Permis B (boîte manuelle ou automatique), conduite accompagnée (AAC), permis moto A1/A2,
-                  formations 125, BSR/AM, permis remorque BE : nous proposons l'ensemble des formations.
+                  Que ce soit en boîte manuelle ou automatique, en formation traditionnelle ou conduite accompagnée,
+                  nous vous formons au permis B. Toutes les formations 2 roues sont disponibles chez nous : permis A1, A2, A
+                  et permis AM en scooter ou Citroën AMI. Nous proposons également la formation au permis BE,
+                  ainsi que des formations de mise à niveau pour les conducteurs soucieux de se perfectionner ou de reprendre confiance.
                 </p>
               </div>
             </div>
@@ -538,6 +652,78 @@
         </div>
 
       </div>
+    </div>
+  </div>
+
+  <!-- DIAPORAMA VEHICULES -->
+  <div class="bg-villars-gray py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl text-center">Notre flotte de véhicules</h2>
+      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Un parc moderne et entretenu, pour toutes les catégories de permis.</p>
+    </div>
+    <div class="carousel overflow-hidden">
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1471174466864-1c4ed1d1f0d6?auto=format&fit=crop&w=700&q=80" alt="Renault Clio" />
+          <div class="label">Renault Clio — Permis B</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=700&q=80" alt="Honda CBF 125" />
+          <div class="label">Honda CBF 125 — Permis A1 / 125</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1568708246904-aacaca28f8c0?auto=format&fit=crop&w=700&q=80" alt="Kawasaki Z400" />
+          <div class="label">Kawasaki Z400 — Permis A2</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1601894782904-d4e90ad8e1a4?auto=format&fit=crop&w=700&q=80" alt="Scooter NIU" />
+          <div class="label">Scooter NIU — Permis AM</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=700&q=80" alt="Citroën AMI" />
+          <div class="label">Citroën AMI — Permis AM</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=700&q=80" alt="Skoda Kodiaq" />
+          <div class="label">Skoda Kodiaq — Permis BE</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=80" alt="Suzuki Swift" />
+          <div class="label">Suzuki Swift — Permis B Auto</div>
+        </div>
+        <!-- duplicate set for seamless loop -->
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1471174466864-1c4ed1d1f0d6?auto=format&fit=crop&w=700&q=80" alt="Renault Clio" />
+          <div class="label">Renault Clio — Permis B</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=700&q=80" alt="Honda CBF 125" />
+          <div class="label">Honda CBF 125 — Permis A1 / 125</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1568708246904-aacaca28f8c0?auto=format&fit=crop&w=700&q=80" alt="Kawasaki Z400" />
+          <div class="label">Kawasaki Z400 — Permis A2</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1601894782904-d4e90ad8e1a4?auto=format&fit=crop&w=700&q=80" alt="Scooter NIU" />
+          <div class="label">Scooter NIU — Permis AM</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=700&q=80" alt="Citroën AMI" />
+          <div class="label">Citroën AMI — Permis AM</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=700&q=80" alt="Skoda Kodiaq" />
+          <div class="label">Skoda Kodiaq — Permis BE</div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=80" alt="Suzuki Swift" />
+          <div class="label">Suzuki Swift — Permis B Auto</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <a href="#" data-page="nos-vehicules" class="page-link btn-outline">Voir tous nos véhicules</a>
     </div>
   </div>
 
@@ -551,6 +737,55 @@
         « Plus qu'une auto-école, une équipe à l'écoute pour vous emmener jusqu'au permis. »
       </p>
       <p class="mt-4 text-villars-red font-heading tracking-widest text-sm">L'École Villars</p>
+    </div>
+  </div>
+
+  <!-- AVIS GOOGLE / FACEBOOK -->
+  <div class="bg-white py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="badge badge-red">Avis Google &amp; Facebook</span>
+        <h2 class="font-heading text-3xl md:text-4xl uppercase font-bold mt-3">Ce que disent nos élèves</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+
+        <div class="avis-card">
+          <div class="avis-stars text-xl mb-2">★ ★ ★ ★ ★</div>
+          <p class="text-gray-700 italic mb-4">« Auto-école très professionnelle, l'équipe est patiente et à l'écoute. J'ai obtenu mon permis du premier coup, je recommande à 100%. »</p>
+          <div class="flex items-center gap-3 pt-3 border-t border-gray-200">
+            <div class="w-10 h-10 bg-villars-red text-white rounded-full flex items-center justify-center font-heading font-bold">L</div>
+            <div>
+              <div class="font-semibold text-sm">Léa M.</div>
+              <div class="text-xs text-gray-500">Avis Google</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="avis-card">
+          <div class="avis-stars text-xl mb-2">★ ★ ★ ★ ★</div>
+          <p class="text-gray-700 italic mb-4">« Très bonne école, mes enfants y sont allés et les enseignants prennent vraiment le temps d'expliquer. Les locaux de Denain sont propres et accueillants. »</p>
+          <div class="flex items-center gap-3 pt-3 border-t border-gray-200">
+            <div class="w-10 h-10 bg-villars-red text-white rounded-full flex items-center justify-center font-heading font-bold">K</div>
+            <div>
+              <div class="font-semibold text-sm">Karim B.</div>
+              <div class="text-xs text-gray-500">Avis Facebook</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="avis-card">
+          <div class="avis-stars text-xl mb-2">★ ★ ★ ★ ★</div>
+          <p class="text-gray-700 italic mb-4">« J'ai passé mon permis moto avec Villars, super accompagnement sur plateau et en circulation. Belle flotte de motos en plus. À recommander ! »</p>
+          <div class="flex items-center gap-3 pt-3 border-t border-gray-200">
+            <div class="w-10 h-10 bg-villars-red text-white rounded-full flex items-center justify-center font-heading font-bold">T</div>
+            <div>
+              <div class="font-semibold text-sm">Thomas D.</div>
+              <div class="text-xs text-gray-500">Avis Google</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -568,7 +803,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
 
-        <!-- France Travail -->
         <div class="bg-white border border-villars-border border-t-4 border-t-villars-red p-8 flex flex-col">
           <div class="flex items-center gap-4 mb-4">
             <div class="bg-villars-black text-villars-red w-14 h-14 flex items-center justify-center flex-shrink-0">
@@ -596,7 +830,6 @@
           </div>
         </div>
 
-        <!-- Pass Permis Denain -->
         <div class="bg-white border border-villars-border border-t-4 border-t-villars-red p-8 flex flex-col">
           <div class="flex items-center gap-4 mb-4">
             <div class="bg-villars-black text-villars-red w-14 h-14 flex items-center justify-center flex-shrink-0">
@@ -617,7 +850,7 @@
           <ul class="space-y-2 text-sm text-gray-700 mb-5">
             <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>Aide versée directement à notre auto-école partenaire</span></li>
             <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>L'École Villars est <strong>partenaire référencée</strong> du dispositif</span></li>
-            <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>Cumulable avec nos facilités de paiement 4x ou 6x sans frais</span></li>
+            <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>Cumulable avec nos facilités de paiement 4, 5 ou 6x sans frais</span></li>
           </ul>
           <div class="info-box text-xs mt-auto">
             <strong>Comment faire ?</strong> Renseignez-vous auprès du service Jeunesse de la Mairie de Denain
@@ -626,12 +859,6 @@
         </div>
 
       </div>
-
-      <p class="text-center text-sm text-gray-600 mt-8">
-        Une question sur le financement ?
-        <a href="#" data-page="contact" class="page-link text-villars-red font-semibold hover:underline">Contactez-nous</a>,
-        nous vous orienterons vers la solution adaptée à votre situation.
-      </p>
     </div>
   </div>
 
@@ -648,44 +875,104 @@
 
 
 <!-- ============================================== -->
-<!-- PAGE 2 : PERMIS B                               -->
+<!-- PAGE NOS FORMATIONS                             -->
 <!-- ============================================== -->
-<section id="page-permis-b" class="page-section">
+<section id="page-nos-formations" class="page-section">
 
-  <!-- Page header -->
   <div class="relative text-white py-12 md:py-20 overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1920&q=80" alt="Voiture sur route" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80" alt="Formations" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.65));"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="badge badge-red mb-3">Catégorie B</span>
-      <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Permis B — Voiture</h1>
+      <span class="badge badge-red mb-3">Toutes nos catégories</span>
+      <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Nos Formations</h1>
       <p class="text-gray-200 text-lg max-w-3xl">
-        Boîte manuelle, boîte automatique ou conduite accompagnée : choisissez la formule qui vous correspond.
-        Tous nos forfaits incluent le code, les heures de conduite et l'accompagnement à l'examen.
+        Du permis voiture à la formation remorque, en passant par toutes les catégories deux-roues,
+        l'École Villars vous accompagne du premier code jusqu'au passage de l'examen.
       </p>
     </div>
   </div>
 
-  <!-- Intro -->
-  <div class="bg-white py-12">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 class="section-title text-2xl">Le permis B en bref</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
-            Le permis B vous autorise à conduire une voiture particulière, dès 17 ans pour l'examen pratique
-            (et 15 ans dans le cadre de la Conduite Accompagnée). La formation comprend une partie théorique (le Code de la route)
-            et une partie pratique (les heures de conduite avec un moniteur diplômé).
-          </p>
-          <p class="text-gray-700 leading-relaxed">
-            Chez Villars, l'inscription débute toujours par une <strong>évaluation de départ</strong> qui nous permet
-            de déterminer ensemble le volume d'heures le mieux adapté à votre profil.
-          </p>
-        </div>
-        <div class="reveal">
-          <img src="https://images.unsplash.com/photo-1485463611174-f302f6a5c1c9?auto=format&fit=crop&w=900&q=80" alt="Volant et tableau de bord" class="w-full h-56 md:h-80 object-cover" />
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+
+        <a href="#" data-page="permis-b" class="page-link formation-card flex flex-col">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80" alt="Permis B" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="badge badge-red w-fit">Catégorie B</span>
+            <h3 class="font-heading text-2xl uppercase font-bold mt-3 mb-2">Permis B</h3>
+            <p class="text-gray-600 text-sm mb-4 flex-1">Voiture particulière ou utilitaire jusqu'à 3,5 tonnes. Boîte manuelle, automatique ou conduite accompagnée.</p>
+            <span class="text-villars-red font-heading uppercase font-semibold text-sm tracking-wider">Voir les forfaits &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" data-page="permis-2-roues" class="page-link formation-card flex flex-col">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80" alt="Permis 2 Roues" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="badge badge-red w-fit">A1 / A2 / A / AM / 125</span>
+            <h3 class="font-heading text-2xl uppercase font-bold mt-3 mb-2">Formations 2 Roues</h3>
+            <p class="text-gray-600 text-sm mb-4 flex-1">Scooter, 125 cm³, A2, passerelle A, BSR : nos formations couvrent toutes les catégories deux-roues.</p>
+            <span class="text-villars-red font-heading uppercase font-semibold text-sm tracking-wider">Voir les forfaits &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" data-page="permis-be" class="page-link formation-card flex flex-col">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=900&q=80" alt="Permis BE" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <span class="badge badge-red w-fit">Catégorie BE</span>
+            <h3 class="font-heading text-2xl uppercase font-bold mt-3 mb-2">Permis BE (Remorque)</h3>
+            <p class="text-gray-600 text-sm mb-4 flex-1">Pour tracter une remorque de plus de 750 kg, jusqu'à 3T500 PTAC, en complément du permis B.</p>
+            <span class="text-villars-red font-heading uppercase font-semibold text-sm tracking-wider">Voir le forfait &rarr;</span>
+          </div>
+        </a>
+
       </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================== -->
+<!-- PAGE PERMIS B                                   -->
+<!-- ============================================== -->
+<section id="page-permis-b" class="page-section">
+
+  <!-- Page header (hero noir avec tout le descriptif) -->
+  <div class="relative text-white py-12 md:py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1920&q=80" alt="Voiture sur route" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.92), rgba(26,26,26,0.78));"></div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="badge badge-red mb-3">Catégorie B</span>
+      <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-4">Permis B</h1>
+      <div class="space-y-3 text-gray-100 leading-relaxed text-base md:text-[1.05rem]">
+        <p>
+          Que vous choisissiez une formation en boîte automatique ou manuelle, par le biais de l'apprentissage traditionnel
+          ou de la conduite accompagnée ou supervisée, le permis B peut être obtenu à l'âge de 17 ans afin de vous permettre
+          la conduite d'une voiture particulière ou utilitaire de moins de 3,5 tonnes.
+        </p>
+        <p>
+          L'inscription et le passage de l'examen du code est possible dès 16 ans pour le permis B traditionnel
+          et dès 15 ans pour la conduite accompagnée (AAC).
+        </p>
+        <p>
+          À l'auto-école Villars, conformément à la réglementation, avant la souscription d'un contrat de formation,
+          vous réalisez une évaluation de départ afin de déterminer ensemble le volume d'heures le mieux adapté à votre profil.
+        </p>
+        <p>
+          Toutes nos formules incluent les frais administratifs, la formation au code de la route (ETG),
+          les heures de conduite ainsi que l'accompagnement à l'examen pratique.
+          Seules l'évaluation de départ (20 €) et la redevance de l'ETG (30 € à régler au centre d'examen de code choisi)
+          ne sont pas comprises dans les forfaits.
+        </p>
+      </div>
+      <p class="mt-5 text-villars-red font-heading text-sm tracking-widest uppercase">Tarifs valables jusqu'au 31/08/2026</p>
     </div>
   </div>
 
@@ -696,74 +983,75 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 reveal">
 
-        <!-- Forfait B Auto 13h -->
-        <div class="forfait-card p-6">
-          <span class="badge">Boîte Automatique</span>
-          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B Auto. 13h</h3>
-          <div class="forfait-price mb-4">810 €</div>
-          <ul class="forfait-list">
-            <li><span class="check-icon">✓</span> Frais administratifs</li>
-            <li><span class="check-icon">✓</span> Forfait Code — accès illimité 1 an</li>
-            <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
-            <li><span class="check-icon">✓</span> <strong>13 heures de conduite</strong></li>
-            <li><span class="check-icon">✓</span> Livret vérifications</li>
-            <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
-            <li><span class="check-icon">✓</span> Kit pédagogique</li>
-          </ul>
+        <!-- Forfait B 13H -->
+        <div class="forfait-card overflow-hidden">
+          <div class="h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1485463611174-f302f6a5c1c9?auto=format&fit=crop&w=700&q=80" alt="Boîte automatique" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <span class="badge">Boîte automatique uniquement</span>
+            <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B 13h</h3>
+            <div class="forfait-price mb-4">810 €</div>
+            <ul class="forfait-list">
+              <li><span class="check-icon">✓</span> Frais administratifs</li>
+              <li><span class="check-icon">✓</span> Forfait code en salle — accès 1 an</li>
+              <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
+              <li><span class="check-icon">✓</span> <strong>13 heures de conduite</strong></li>
+              <li><span class="check-icon">✓</span> Livret de vérifications</li>
+              <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
+              <li><span class="check-icon">✓</span> Kit pédagogique (livret de suivi numérique)</li>
+              <li><span class="check-icon">✓</span> <em>Paiement en 4x sans frais</em></li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Forfait B Auto 20h -->
-        <div class="forfait-card p-6">
-          <span class="badge">Boîte Automatique</span>
-          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B Auto. 20h</h3>
-          <div class="forfait-price mb-4">1 079 €</div>
-          <ul class="forfait-list">
-            <li><span class="check-icon">✓</span> Frais administratifs</li>
-            <li><span class="check-icon">✓</span> Forfait Code — accès illimité 1 an</li>
-            <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
-            <li><span class="check-icon">✓</span> <strong>20 heures de conduite</strong></li>
-            <li><span class="check-icon">✓</span> Livret vérifications</li>
-            <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
-            <li><span class="check-icon">✓</span> Kit pédagogique</li>
-          </ul>
+        <!-- Forfait B 20H -->
+        <div class="forfait-card overflow-hidden" style="border-top-color: #1A1A1A;">
+          <div class="h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1471174466864-1c4ed1d1f0d6?auto=format&fit=crop&w=700&q=80" alt="Renault Clio" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <span class="badge badge-red">Le plus demandé</span>
+            <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B 20h</h3>
+            <div class="forfait-price mb-4">1 079 €</div>
+            <p class="text-xs uppercase tracking-wider text-gray-500 font-heading mb-2">Boîte automatique ou manuelle</p>
+            <ul class="forfait-list">
+              <li><span class="check-icon">✓</span> Frais administratifs</li>
+              <li><span class="check-icon">✓</span> Forfait code en salle — accès 1 an</li>
+              <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
+              <li><span class="check-icon">✓</span> <strong>20 heures de conduite</strong></li>
+              <li><span class="check-icon">✓</span> Livret de vérifications</li>
+              <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
+              <li><span class="check-icon">✓</span> Kit pédagogique (livret de suivi numérique)</li>
+              <li><span class="check-icon">✓</span> <em>Paiement en 4x sans frais</em></li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Forfait B 20h Manuel -->
-        <div class="forfait-card p-6" style="border-top-color: #1A1A1A;">
-          <span class="badge badge-red">Le plus demandé</span>
-          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B 20h Manuel</h3>
-          <div class="forfait-price mb-4">1 079 €</div>
-          <ul class="forfait-list">
-            <li><span class="check-icon">✓</span> Frais administratifs</li>
-            <li><span class="check-icon">✓</span> Forfait Code — accès illimité 1 an</li>
-            <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
-            <li><span class="check-icon">✓</span> <strong>20 heures de conduite — boîte manuelle</strong></li>
-            <li><span class="check-icon">✓</span> Livret vérifications</li>
-            <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
-            <li><span class="check-icon">✓</span> Kit pédagogique</li>
-            <li><span class="check-icon">✓</span> <em>Paiement 4x ou 6x sans frais</em></li>
-          </ul>
-        </div>
-
-        <!-- Forfait B 30h -->
-        <div class="forfait-card p-6">
-          <span class="badge">Boîte Manuelle</span>
-          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B 30h</h3>
-          <div class="forfait-price mb-4">1 539 €</div>
-          <ul class="forfait-list">
-            <li><span class="check-icon">✓</span> Frais administratifs</li>
-            <li><span class="check-icon">✓</span> Forfait Code — accès illimité 1 an</li>
-            <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
-            <li><span class="check-icon">✓</span> <strong>30 heures de conduite — boîte manuelle</strong></li>
-            <li><span class="check-icon">✓</span> Livret vérifications</li>
-            <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
-            <li><span class="check-icon">✓</span> Kit pédagogique</li>
-            <li><span class="check-icon">✓</span> <em>Paiement 4x ou 6x sans frais</em></li>
-          </ul>
+        <!-- Forfait B 30H -->
+        <div class="forfait-card overflow-hidden">
+          <div class="h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=80" alt="Volant" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <span class="badge">Boîte automatique ou manuelle</span>
+            <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B 30h</h3>
+            <div class="forfait-price mb-4">1 539 €</div>
+            <ul class="forfait-list">
+              <li><span class="check-icon">✓</span> Frais administratifs</li>
+              <li><span class="check-icon">✓</span> Forfait code en salle — accès 1 an</li>
+              <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
+              <li><span class="check-icon">✓</span> <strong>30 heures de conduite</strong></li>
+              <li><span class="check-icon">✓</span> Livret de vérifications</li>
+              <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
+              <li><span class="check-icon">✓</span> Kit pédagogique (livret de suivi numérique)</li>
+              <li><span class="check-icon">✓</span> <em>Paiement en 4x sans frais</em></li>
+            </ul>
+          </div>
         </div>
 
         <!-- AAC -->
-        <div class="forfait-card md:col-span-2 overflow-hidden" style="border-top-color: #1A1A1A;">
+        <div class="forfait-card md:col-span-2 lg:col-span-3 overflow-hidden" style="border-top-color: #1A1A1A;">
           <div class="grid grid-cols-1 md:grid-cols-5 gap-0">
             <div class="md:col-span-2 h-64 md:h-auto overflow-hidden">
               <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Conduite accompagnée" class="w-full h-full object-cover" />
@@ -771,7 +1059,7 @@
             <div class="md:col-span-3 p-6">
               <div class="flex flex-wrap items-center gap-2 mb-3">
                 <span class="badge badge-red">Dès 15 ans</span>
-                <span class="badge">Conduite Accompagnée</span>
+                <span class="badge">Conduite Accompagnée — Boîte automatique ou manuelle</span>
               </div>
               <h3 class="font-heading text-2xl font-bold uppercase mb-2">Forfait AAC — Conduite Accompagnée</h3>
               <div class="forfait-price mb-4">1 299 €</div>
@@ -782,7 +1070,7 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
                 <ul class="forfait-list">
                   <li><span class="check-icon">✓</span> Frais administratifs</li>
-                  <li><span class="check-icon">✓</span> Forfait Code — accès illimité 1 an</li>
+                  <li><span class="check-icon">✓</span> Forfait code en salle — accès 1 an</li>
                   <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
                   <li><span class="check-icon">✓</span> <strong>22 heures de conduite</strong></li>
                 </ul>
@@ -790,18 +1078,14 @@
                   <li><span class="check-icon">✓</span> 2 rendez-vous pédagogiques</li>
                   <li><span class="check-icon">✓</span> Livret de conduite accompagnée</li>
                   <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
-                  <li><span class="check-icon">✓</span> Kit pédagogique</li>
+                  <li><span class="check-icon">✓</span> Kit pédagogique (livret de suivi numérique)</li>
+                  <li><span class="check-icon">✓</span> <em>Paiement en 4x sans frais</em></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-      </div>
-
-      <div class="info-box mt-8 max-w-4xl mx-auto">
-        <strong>À noter :</strong> Nos forfaits ne comprennent pas la redevance d'examen du code (30 €)
-        ni l'évaluation de départ (20 €). Ces deux frais sont à régler directement à l'auto-école.
       </div>
 
       <div class="mt-6 max-w-4xl mx-auto bg-white border-l-4 border-villars-black p-5 text-sm text-gray-700">
@@ -812,55 +1096,27 @@
     </div>
   </div>
 
-  <!-- TARIFS UNITAIRES -->
-  <div class="bg-white py-16">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl">Tarifs unitaires (hors forfait)</h2>
-      <p class="text-gray-600 mb-6">Vous préférez payer à la carte ? Voici nos tarifs détaillés pour chaque prestation.</p>
-      <div class="overflow-x-auto">
-        <table class="tarif-table">
-          <thead>
-            <tr><th>Prestation</th><th class="text-right">Tarif</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Frais administratifs</td><td class="text-right font-semibold">100 €</td></tr>
-            <tr><td>1 heure de conduite</td><td class="text-right font-semibold">55 €</td></tr>
-            <tr><td>Évaluation de départ — conduite</td><td class="text-right font-semibold">55 €</td></tr>
-            <tr><td>Évaluation de départ — tablette</td><td class="text-right font-semibold">20 €</td></tr>
-            <tr><td>Frais d'accompagnement à l'examen</td><td class="text-right font-semibold">55 €</td></tr>
-            <tr><td>Kit pédagogique</td><td class="text-right font-semibold">15 €</td></tr>
-            <tr><td>Prépacode</td><td class="text-right font-semibold">45 €</td></tr>
-            <tr><td>Livre de code</td><td class="text-right font-semibold">15 €</td></tr>
-            <tr><td>Livret de vérifications</td><td class="text-right font-semibold">10 €</td></tr>
-            <tr><td>Forfait Code — accès illimité 1 an</td><td class="text-right font-semibold">140 €</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="text-xs text-gray-500 mt-4">Tarifs valables jusqu'au 31/08/2026.</p>
-    </div>
-  </div>
-
   <!-- PIECES A FOURNIR -->
-  <div class="bg-villars-gray py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl">Pièces à fournir pour le Permis B</h2>
-      <div class="bg-white p-8 border border-villars-border">
+      <h2 class="section-title text-3xl">Pièces à fournir à l'inscription</h2>
+      <div class="bg-villars-gray p-8 border border-villars-border">
         <ul class="space-y-3">
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span><strong>2 photos E-Photo</strong> (signature obligatoire)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Carte Nationale d'Identité (recto-verso)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation Journée Défense et Citoyenneté (pour les 17-25 ans)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation de Recensement (pour les moins de 17 ans)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>ASSR 2 (pour les moins de 21 ans)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>1 enveloppe affranchie 50g ou 3 timbres au tarif en vigueur</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Facture de moins de 6 mois à votre nom (EDF, eau, téléphone fixe ou box)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers (+ CNI de l'hébergeur + justificatif de domicile)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis…)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers</span></li>
         </ul>
       </div>
     </div>
   </div>
 
   <!-- CTA -->
-  <div class="bg-white py-12 text-center">
+  <div class="bg-villars-black py-10 md:py-12 text-center">
     <a href="#" data-page="contact" class="page-link btn-primary">S'inscrire au permis B</a>
   </div>
 
@@ -868,20 +1124,26 @@
 
 
 <!-- ============================================== -->
-<!-- PAGE 3 : PERMIS MOTO                            -->
+<!-- PAGE PERMIS 2 ROUES                             -->
 <!-- ============================================== -->
-<section id="page-permis-moto" class="page-section">
+<section id="page-permis-2-roues" class="page-section">
 
   <div class="relative text-white py-12 md:py-20 overflow-hidden">
     <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80" alt="Moto sur route" class="absolute inset-0 w-full h-full object-cover" />
-    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.6));"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="badge badge-red mb-3">Catégories A1 / A2 / AM / 125 / BE</span>
-      <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Permis Moto & Formations</h1>
-      <p class="text-gray-200 text-lg max-w-3xl">
-        Scooter, 125, A2, passage A, remorque… L'École Villars vous accompagne sur l'ensemble des formations
-        deux-roues et complémentaires, avec une flotte moderne et entretenue.
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.88), rgba(26,26,26,0.65));"></div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="badge badge-red mb-3">Catégories A1 / A2 / A / AM / 125</span>
+      <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Formations 2 Roues</h1>
+      <p class="text-gray-200 text-lg max-w-3xl mb-4">
+        L'École Villars vous accompagne sur l'ensemble des formations deux-roues, avec une flotte moderne et entretenue.
       </p>
+      <div class="bg-black bg-opacity-30 border-l-4 border-villars-red p-4 max-w-2xl">
+        <p class="font-heading uppercase tracking-wider text-villars-red text-sm mb-2">Formation au permis Moto</p>
+        <ul class="text-gray-100 text-sm space-y-1">
+          <li>• Catégorie A1 (125 cm³) dès 16 ans</li>
+          <li>• Catégorie A2 (47,5 chevaux) dès 18 ans</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -900,14 +1162,14 @@
           <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait Moto avec ETM</h3>
           <div class="forfait-price mb-4">790 €</div>
           <ul class="forfait-list">
+            <li><span class="check-icon">✓</span> Frais administratifs</li>
+            <li><span class="check-icon">✓</span> Prépacode moto — 60 séries de 40 questions — 6 mois max.</li>
             <li><span class="check-icon">✓</span> <strong>20 heures de conduite</strong> (plateau + circulation)</li>
             <li><span class="check-icon">✓</span> Frais accompagnement examen plateau et circulation</li>
-            <li><span class="check-icon">✓</span> Kit pédagogique</li>
-            <li><span class="check-icon">✓</span> Prépacode moto — 60 séries de 40 questions — 6 mois max.</li>
-            <li><span class="check-icon">✓</span> Frais administratifs</li>
+            <li><span class="check-icon">✓</span> Kit pédagogique (livret de suivi numérique)</li>
           </ul>
           <div class="info-box mt-6 text-xs">
-            Peu importe l'âge ou la date d'obtention de votre permis B, l'<strong>ETM (Épreuve Théorique Moto)</strong> est désormais obligatoire pour tous les candidats au permis moto.
+            Peu importe l'âge ou la date d'obtention de votre éventuel permis B, l'<strong>ETM (Épreuve Théorique Moto)</strong> est désormais obligatoire pour tous les candidats au permis moto.
           </div>
         </div>
       </div>
@@ -957,53 +1219,13 @@
     </div>
   </div>
 
-  <!-- PERMIS BE -->
+  <!-- EQUIPEMENT -->
   <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl">Permis Remorque BE</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 reveal">
-
-        <div class="forfait-card p-8">
-          <span class="badge">Permis BE</span>
-          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait BE — 8 heures</h3>
-          <div class="forfait-price mb-4">550 €</div>
-          <ul class="forfait-list">
-            <li><span class="check-icon">✓</span> Forfait 8h avec ou sans code</li>
-            <li><span class="check-icon">✓</span> Leçons hors circulation</li>
-            <li><span class="check-icon">✓</span> Leçons en circulation</li>
-            <li><span class="check-icon">✓</span> Frais accompagnement examen</li>
-            <li><span class="check-icon">✓</span> Kit pédagogique</li>
-          </ul>
-          <div class="info-box mt-5 text-xs">
-            Le permis BE est <strong>obligatoire pour tracter une remorque de plus de 750 kg jusqu'à 3T500 PTAC</strong>.
-          </div>
-        </div>
-
-        <div>
-          <h3 class="font-heading text-xl font-bold uppercase mb-4">Tarifs unitaires BE</h3>
-          <table class="tarif-table">
-            <thead>
-              <tr><th>Prestation</th><th class="text-right">Tarif</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1h conduite en circulation</td><td class="text-right font-semibold">65 €</td></tr>
-              <tr><td>1h hors circulation</td><td class="text-right font-semibold">65 €</td></tr>
-              <tr><td>Frais accompagnement examen</td><td class="text-right font-semibold">97,50 €</td></tr>
-              <tr><td>Livre Remorque</td><td class="text-right font-semibold">15 €</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- EQUIPEMENT -->
-  <div class="bg-villars-gray py-10 md:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl">Équipement obligatoire moto</h2>
+      <h2 class="section-title text-3xl">Équipement obligatoire 2 roues</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 reveal">
 
-        <div class="bg-white p-6 text-center border border-villars-border">
+        <div class="bg-villars-gray p-6 text-center border border-villars-border">
           <div class="icon-circle mx-auto">
             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C7.58 2 4 5.58 4 10v5a2 2 0 002 2h1v-7a5 5 0 0110 0v7h1a2 2 0 002-2v-5c0-4.42-3.58-8-8-8z"/></svg>
           </div>
@@ -1011,7 +1233,7 @@
           <p class="text-sm text-gray-600 mt-1">Homologués CE</p>
         </div>
 
-        <div class="bg-white p-6 text-center border border-villars-border">
+        <div class="bg-villars-gray p-6 text-center border border-villars-border">
           <div class="icon-circle mx-auto">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 18v-2a4 4 0 014-4h8a4 4 0 014 4v2M8 12l4-8 4 8"/></svg>
           </div>
@@ -1019,7 +1241,7 @@
           <p class="text-sm text-gray-600 mt-1">Couvrant les chevilles</p>
         </div>
 
-        <div class="bg-white p-6 text-center border border-villars-border">
+        <div class="bg-villars-gray p-6 text-center border border-villars-border">
           <div class="icon-circle mx-auto">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 4l4 4-8 12-8-12 4-4h8z"/></svg>
           </div>
@@ -1027,7 +1249,7 @@
           <p class="text-sm text-gray-600 mt-1">Avec protections</p>
         </div>
 
-        <div class="bg-white p-6 text-center border border-villars-border">
+        <div class="bg-villars-gray p-6 text-center border border-villars-border">
           <div class="icon-circle mx-auto">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 2v6m6-6v6M6 8h12l-2 14H8L6 8z"/></svg>
           </div>
@@ -1041,93 +1263,29 @@
         <strong>Important :</strong> Équipement non conforme = pas de leçon = replanification et refacturation.
         Nous vérifions systématiquement l'équipement avant chaque cours pour votre sécurité.
       </div>
-    </div>
-  </div>
 
-  <!-- VEHICULES -->
-  <div class="bg-white py-10 md:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl">Véhicules disponibles</h2>
-      <p class="text-gray-600 mb-8 max-w-2xl">Une flotte moderne, régulièrement entretenue, pour vous former dans les meilleures conditions sur tous les segments deux-roues.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
-
-        <div class="bg-white border border-villars-border overflow-hidden">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1601894782904-d4e90ad8e1a4?auto=format&fit=crop&w=700&q=80" alt="Scooter électrique" class="w-full h-full object-cover" />
-          </div>
-          <div class="p-5 border-l-4 border-villars-red">
-            <h4 class="font-heading uppercase text-lg font-semibold mb-1">2 Scooters Électriques</h4>
-            <p class="text-gray-600 text-sm">NIU — équivalent 50 cm³</p>
-          </div>
-        </div>
-
-        <div class="bg-white border border-villars-border overflow-hidden">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=700&q=80" alt="Honda CBF 125" class="w-full h-full object-cover" />
-          </div>
-          <div class="p-5 border-l-4 border-villars-red">
-            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Moto 125 cm³</h4>
-            <p class="text-gray-600 text-sm">Honda CBF</p>
-          </div>
-        </div>
-
-        <div class="bg-white border border-villars-border overflow-hidden">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=700&q=80" alt="Harley Davidson Pan America" class="w-full h-full object-cover" />
-          </div>
-          <div class="p-5 border-l-4 border-villars-red">
-            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Harley Davidson</h4>
-            <p class="text-gray-600 text-sm">Pan America 1250</p>
-          </div>
-        </div>
-
-        <div class="bg-white border border-villars-border overflow-hidden">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1568708246904-aacaca28f8c0?auto=format&fit=crop&w=700&q=80" alt="Indian FTR 1200" class="w-full h-full object-cover" />
-          </div>
-          <div class="p-5 border-l-4 border-villars-red">
-            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Indian</h4>
-            <p class="text-gray-600 text-sm">1200 FTR</p>
-          </div>
-        </div>
-
-        <div class="bg-white border border-villars-border overflow-hidden">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=700&q=80" alt="Citroën AMI" class="w-full h-full object-cover" />
-          </div>
-          <div class="p-5 border-l-4 border-villars-red">
-            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Citroën AMI</h4>
-            <p class="text-gray-600 text-sm">Pour formation AM / BSR</p>
-          </div>
-        </div>
-
-        <div class="bg-villars-black text-white overflow-hidden flex flex-col">
-          <div class="h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1530653333484-8e6cae1d2f63?auto=format&fit=crop&w=700&q=80" alt="Point de rendez-vous" class="w-full h-full object-cover opacity-70" />
-          </div>
-          <div class="p-5 border-l-4 border-villars-red flex-1">
-            <h4 class="font-heading uppercase text-lg font-semibold mb-1 text-villars-red">Point de RDV pratique</h4>
-            <p class="text-sm">73 rue Barbusse<br/>59220 Denain</p>
-          </div>
-        </div>
-
+      <div class="mt-6 max-w-4xl mx-auto bg-villars-black text-white p-5 text-sm">
+        <span class="badge badge-red mb-2">Point de RDV pratique</span>
+        <p class="mt-2">Les leçons pratiques 2 roues démarrent au <strong>73 rue Barbusse, 59220 Denain</strong>.</p>
       </div>
     </div>
   </div>
 
-  <!-- PIECES A FOURNIR -->
-  <div class="bg-villars-gray py-16">
+  <!-- PIECES A FOURNIR (uniformisé avec permis B) -->
+  <div class="bg-villars-gray py-10 md:py-16">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl">Pièces à fournir pour le Permis Moto</h2>
+      <h2 class="section-title text-3xl">Pièces à fournir à l'inscription</h2>
       <div class="bg-white p-8 border border-villars-border">
         <ul class="space-y-3">
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span><strong>2 photos E-Photo</strong> (signature obligatoire)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Carte Nationale d'Identité</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation Journée Défense et Citoyenneté (à partir de 17 ans)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Carte Nationale d'Identité (recto-verso)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation Journée Défense et Citoyenneté (pour les 17-25 ans)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation de Recensement (pour les moins de 17 ans)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Facture de moins de 6 mois à votre nom</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement le cas échéant</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>ASSR (délivrée au collège)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>ASSR (délivrée au collège) — pour les moins de 21 ans</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis…)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Copie de votre éventuel permis B</span></li>
         </ul>
       </div>
     </div>
@@ -1137,7 +1295,314 @@
 
 
 <!-- ============================================== -->
-<!-- PAGE 4 : HORAIRES & AGENCES                     -->
+<!-- PAGE PERMIS BE                                  -->
+<!-- ============================================== -->
+<section id="page-permis-be" class="page-section">
+
+  <div class="relative text-white py-12 md:py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1920&q=80" alt="Voiture avec remorque" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.88), rgba(26,26,26,0.65));"></div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="badge badge-red mb-3">Catégorie BE</span>
+      <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Formation au Permis Remorque (BE)</h1>
+      <p class="text-gray-200 text-lg max-w-3xl">
+        Le permis BE permet de tracter une remorque de plus de 750 kg, jusqu'à 3T500 PTAC, en complément du permis B.
+        Une formation pratique adaptée aux besoins des particuliers comme des professionnels.
+      </p>
+    </div>
+  </div>
+
+  <!-- FORFAIT BE -->
+  <div class="bg-white py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
+        <div>
+          <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=900&q=80" alt="Permis BE" class="w-full h-80 object-cover" />
+        </div>
+        <div class="forfait-card p-8">
+          <span class="badge badge-red mb-3">Permis BE</span>
+          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait BE — 8 heures</h3>
+          <div class="forfait-price mb-4">550 €</div>
+          <ul class="forfait-list">
+            <li><span class="check-icon">✓</span> Forfait code en salle (1 an) si nécessaire</li>
+            <li><span class="check-icon">✓</span> Prépacode en option — 45 € valable 6 mois</li>
+            <li><span class="check-icon">✓</span> Frais administratifs</li>
+            <li><span class="check-icon">✓</span> <strong>Forfait 8h de conduite</strong></li>
+            <li><span class="check-icon">✓</span> Leçons plateau et circulation</li>
+            <li><span class="check-icon">✓</span> Frais accompagnement examen</li>
+            <li><span class="check-icon">✓</span> Kit pédagogique (livret de suivi numérique)</li>
+          </ul>
+          <div class="info-box mt-5 text-xs">
+            <strong>À noter :</strong> obligation de repasser l'<strong>ETG (code de la route)</strong>
+            si le permis B a été obtenu il y a plus de 5 ans.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEMA QUAND BE NECESSAIRE -->
+  <div class="bg-villars-gray py-10 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl">Dans quel cas le permis BE est-il nécessaire ?</h2>
+      <p class="text-gray-700 mb-6">
+        Selon le PTAC (Poids Total Autorisé en Charge) de votre remorque et de votre véhicule,
+        plusieurs cas de figure se présentent.
+      </p>
+
+      <div class="space-y-4">
+
+        <div class="schema-row">
+          <div class="schema-cond">
+            <strong class="font-heading uppercase text-sm tracking-wider">Cas 1 — Remorque légère</strong>
+            <p class="mt-1 text-sm text-gray-700">PTAC remorque ≤ <strong>750 kg</strong> (peu importe le véhicule tracteur)</p>
+          </div>
+          <div class="schema-result">Permis B suffit</div>
+        </div>
+
+        <div class="schema-row">
+          <div class="schema-cond">
+            <strong class="font-heading uppercase text-sm tracking-wider">Cas 2 — Petit ensemble</strong>
+            <p class="mt-1 text-sm text-gray-700">
+              PTAC remorque &gt; 750 kg <strong>et</strong> (PTAC voiture + PTAC remorque) ≤ <strong>3 500 kg</strong>
+            </p>
+          </div>
+          <div class="schema-result">Permis B suffit</div>
+        </div>
+
+        <div class="schema-row">
+          <div class="schema-cond">
+            <strong class="font-heading uppercase text-sm tracking-wider">Cas 3 — Ensemble intermédiaire</strong>
+            <p class="mt-1 text-sm text-gray-700">
+              PTAC remorque &gt; 750 kg <strong>et</strong> (PTAC voiture + PTAC remorque) entre <strong>3 500 kg</strong> et <strong>4 250 kg</strong>
+            </p>
+          </div>
+          <div class="schema-result red">Permis B96 (7h)</div>
+        </div>
+
+        <div class="schema-row">
+          <div class="schema-cond">
+            <strong class="font-heading uppercase text-sm tracking-wider">Cas 4 — Grand ensemble</strong>
+            <p class="mt-1 text-sm text-gray-700">
+              PTAC remorque &gt; 750 kg <strong>et</strong> (PTAC voiture + PTAC remorque) &gt; <strong>4 250 kg</strong>
+              (jusqu'à 3T500 PTAC remorque)
+            </p>
+          </div>
+          <div class="schema-result red">Permis BE requis</div>
+        </div>
+
+      </div>
+
+      <p class="text-xs text-gray-500 mt-4 italic">PTAC : Poids Total Autorisé en Charge — indiqué sur la carte grise du véhicule (case F.2).</p>
+    </div>
+  </div>
+
+  <!-- PIECES A FOURNIR -->
+  <div class="bg-white py-10 md:py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl">Pièces à fournir à l'inscription</h2>
+      <div class="bg-villars-gray p-8 border border-villars-border">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span><strong>2 photos E-Photo</strong> (signature obligatoire)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Carte Nationale d'Identité (recto-verso)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Copie de votre permis B</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis…)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation Journée Défense et Citoyenneté</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-villars-black py-10 md:py-12 text-center">
+    <a href="#" data-page="contact" class="page-link btn-primary">S'inscrire au permis BE</a>
+  </div>
+
+</section>
+
+
+<!-- ============================================== -->
+<!-- PAGE NOS VEHICULES                              -->
+<!-- ============================================== -->
+<section id="page-nos-vehicules" class="page-section">
+
+  <div class="relative text-white py-12 md:py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80" alt="Véhicules" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.6));"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="badge badge-red mb-3">Notre flotte</span>
+      <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Nos Véhicules</h1>
+      <p class="text-gray-200 text-lg max-w-3xl">
+        Un parc moderne et régulièrement entretenu, adapté à chaque catégorie de permis.
+        Toutes nos voitures, motos et scooters sont assurés double commande pour votre apprentissage.
+      </p>
+    </div>
+  </div>
+
+  <!-- PERMIS B -->
+  <div class="bg-white py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl">Pour le Permis B</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1471174466864-1c4ed1d1f0d6?auto=format&fit=crop&w=900&q=80" alt="Renault Clio" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">Boîte manuelle</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">10 Renault Clio</h4>
+            <p class="text-gray-600 text-sm">Pour l'apprentissage du permis B en boîte manuelle</p>
+          </div>
+        </div>
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80" alt="Suzuki Swift" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">Boîte automatique</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">1 Suzuki Swift</h4>
+            <p class="text-gray-600 text-sm">Pour l'apprentissage du permis B en boîte automatique</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PERMIS A2 -->
+  <div class="bg-villars-gray py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl">Pour le Permis A2</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568708246904-aacaca28f8c0?auto=format&fit=crop&w=900&q=80" alt="Kawasaki Z400" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">Roadster</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">3 Kawasaki Z400</h4>
+            <p class="text-gray-600 text-sm">Dont une version rabaissée pour les petits gabarits</p>
+          </div>
+        </div>
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=900&q=80" alt="CF Moto NK450" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">Roadster</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">1 CF Moto NK450</h4>
+            <p class="text-gray-600 text-sm">Permis A2 — moto moderne et accessible</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PERMIS A1 / 125 -->
+  <div class="bg-white py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl">Pour le Permis A1 &amp; Formation 125 cm³</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80" alt="Honda CBF 125" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">125 cm³</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">Honda CBF 125</h4>
+            <p class="text-gray-600 text-sm">Pour le permis A1 et la formation 125 (passerelle B)</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PERMIS AM -->
+  <div class="bg-villars-gray py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl">Pour le Permis AM (BSR)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601894782904-d4e90ad8e1a4?auto=format&fit=crop&w=900&q=80" alt="Scooter NIU" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">AM Cyclo</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">2 Scooters Électriques NIU</h4>
+            <p class="text-gray-600 text-sm">Équivalents 50 cm³ — pour la formation AM cyclo</p>
+          </div>
+        </div>
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=900&q=80" alt="Citroën AMI" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">AM Quadricycle</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">Citroën AMI</h4>
+            <p class="text-gray-600 text-sm">Pour la formation AM quadricycle léger</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PERMIS BE -->
+  <div class="bg-white py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-3xl">Pour le Permis BE</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=900&q=80" alt="Skoda Kodiaq" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">Tracteur</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">1 Skoda Kodiaq</h4>
+            <p class="text-gray-600 text-sm">Boîte automatique — pour le permis BE</p>
+          </div>
+        </div>
+
+        <div class="vehicle-tile">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=900&q=80" alt="Remorque Fourgon" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <span class="badge">Remorque</span>
+            <h4 class="font-heading uppercase text-lg font-semibold mt-2">1 Remorque Fourgon</h4>
+            <p class="text-gray-600 text-sm">Adaptée à l'examen pratique BE</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- POINT RDV -->
+  <div class="bg-villars-black text-white py-10 md:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="badge badge-red mb-3">Point de RDV pratique</span>
+      <h3 class="font-heading text-2xl md:text-3xl uppercase font-bold mt-3">73 rue Barbusse, 59220 Denain</h3>
+      <p class="text-gray-300 mt-3">Toutes les leçons pratiques (voiture, moto, BE) démarrent depuis ce point de rendez-vous.</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================== -->
+<!-- PAGE HORAIRES & AGENCES                         -->
 <!-- ============================================== -->
 <section id="page-horaires" class="page-section">
 
@@ -1154,7 +1619,7 @@
   </div>
 
   <!-- DENAIN -->
-  <div class="bg-white py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
 
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
@@ -1169,38 +1634,44 @@
         <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=80" alt="Façade auto-école Denain" class="w-full h-full object-cover" />
       </div>
 
-      <h3 class="font-heading text-xl uppercase font-semibold mb-3">Horaires du bureau</h3>
-      <div class="overflow-x-auto mb-8">
-        <table class="horaire-table">
-          <thead>
-            <tr><th>Jour</th><th>Matin</th><th>Après-midi</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Lundi</td><td>—</td><td>14h – 19h30</td></tr>
-            <tr><td>Mardi</td><td>—</td><td>14h – 19h30</td></tr>
-            <tr><td>Mercredi</td><td>10h – 12h</td><td>14h – 19h30</td></tr>
-            <tr><td>Jeudi</td><td>10h – 12h</td><td>14h – 19h30</td></tr>
-            <tr><td>Vendredi</td><td>10h – 12h</td><td>14h – 17h</td></tr>
-            <tr><td>Samedi</td><td>10h – 12h</td><td>14h – 17h</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-heading text-xl uppercase font-semibold mb-3">Horaires du bureau</h3>
+          <div class="overflow-x-auto">
+            <table class="horaire-table">
+              <thead>
+                <tr><th>Jour</th><th>Matin</th><th>Après-midi</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Lundi</td><td>—</td><td>14h – 19h30</td></tr>
+                <tr><td>Mardi</td><td>—</td><td>14h – 19h30</td></tr>
+                <tr><td>Mercredi</td><td>10h – 12h</td><td>14h – 19h30</td></tr>
+                <tr><td>Jeudi</td><td>10h – 12h</td><td>14h – 19h30</td></tr>
+                <tr><td>Vendredi</td><td>10h – 12h</td><td>14h – 17h</td></tr>
+                <tr><td>Samedi</td><td>10h – 12h</td><td>14h – 17h</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-      <h3 class="font-heading text-xl uppercase font-semibold mb-3">Séances de code</h3>
-      <div class="overflow-x-auto mb-8">
-        <table class="horaire-table">
-          <thead>
-            <tr><th>Jour</th><th>Matin</th><th>Après-midi</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Lundi</td><td>—</td><td>14h30 / 15h30 / 18h30</td></tr>
-            <tr><td>Mardi</td><td>—</td><td>14h30 / 15h30 / 18h30</td></tr>
-            <tr><td>Mercredi</td><td>10h / 11h</td><td>14h30 / 15h30 / 18h30</td></tr>
-            <tr><td>Jeudi</td><td>10h / 11h</td><td>14h30 / 15h30 / 18h30</td></tr>
-            <tr><td>Vendredi</td><td>10h / 11h</td><td>14h30 / 15h30</td></tr>
-            <tr><td>Samedi</td><td>10h / 11h</td><td>14h30 / 15h30</td></tr>
-          </tbody>
-        </table>
+        <div>
+          <h3 class="font-heading text-xl uppercase font-semibold mb-3">Séances de code</h3>
+          <div class="overflow-x-auto">
+            <table class="horaire-table">
+              <thead>
+                <tr><th>Jour</th><th>Matin</th><th>Après-midi</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Lundi</td><td>—</td><td>14h30 / 15h30 / 18h30</td></tr>
+                <tr><td>Mardi</td><td>—</td><td>14h30 / 15h30 / 18h30</td></tr>
+                <tr><td>Mercredi</td><td>10h / 11h</td><td>14h30 / 15h30 / 18h30</td></tr>
+                <tr><td>Jeudi</td><td>10h / 11h</td><td>14h30 / 15h30 / 18h30</td></tr>
+                <tr><td>Vendredi</td><td>10h / 11h</td><td>14h30 / 15h30</td></tr>
+                <tr><td>Samedi</td><td>10h / 11h</td><td>14h30 / 15h30</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
       <div class="info-box mb-8">
@@ -1218,7 +1689,7 @@
   </div>
 
   <!-- PETITE FORET -->
-  <div class="bg-villars-gray py-16">
+  <div class="bg-villars-gray py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
 
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
@@ -1233,36 +1704,42 @@
         <img src="https://images.unsplash.com/photo-1471174466864-1c4ed1d1f0d6?auto=format&fit=crop&w=1400&q=80" alt="Façade auto-école Petite-Forêt" class="w-full h-full object-cover" />
       </div>
 
-      <h3 class="font-heading text-xl uppercase font-semibold mb-3">Horaires du bureau</h3>
-      <div class="overflow-x-auto mb-8">
-        <table class="horaire-table">
-          <thead>
-            <tr><th>Jour</th><th>Matin</th><th>Après-midi / Soir</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Lundi</td><td colspan="2" class="text-gray-500 italic">Fermé</td></tr>
-            <tr><td>Mardi</td><td>—</td><td>17h – 19h30</td></tr>
-            <tr><td>Mercredi</td><td>—</td><td>14h – 19h30</td></tr>
-            <tr><td>Jeudi</td><td>—</td><td>17h – 19h30</td></tr>
-            <tr><td>Vendredi</td><td colspan="2" class="text-gray-500 italic">Fermé</td></tr>
-            <tr><td>Samedi</td><td>10h – 12h</td><td>13h – 15h</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 class="font-heading text-xl uppercase font-semibold mb-3">Horaires du bureau</h3>
+          <div class="overflow-x-auto">
+            <table class="horaire-table">
+              <thead>
+                <tr><th>Jour</th><th>Matin</th><th>Après-midi / Soir</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Lundi</td><td colspan="2" class="text-gray-500 italic">Fermé</td></tr>
+                <tr><td>Mardi</td><td>—</td><td>17h – 19h30</td></tr>
+                <tr><td>Mercredi</td><td>—</td><td>14h – 19h30</td></tr>
+                <tr><td>Jeudi</td><td>—</td><td>17h – 19h30</td></tr>
+                <tr><td>Vendredi</td><td colspan="2" class="text-gray-500 italic">Fermé</td></tr>
+                <tr><td>Samedi</td><td>10h – 12h</td><td>13h – 15h</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-      <h3 class="font-heading text-xl uppercase font-semibold mb-3">Séances de code</h3>
-      <div class="overflow-x-auto mb-8">
-        <table class="horaire-table">
-          <thead>
-            <tr><th>Jour</th><th>Horaires</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Mardi</td><td>17h30 & 18h30</td></tr>
-            <tr><td>Mercredi</td><td>14h, 17h30 & 18h30</td></tr>
-            <tr><td>Jeudi</td><td>17h30 & 18h30</td></tr>
-            <tr><td>Samedi</td><td>13h & 14h</td></tr>
-          </tbody>
-        </table>
+        <div>
+          <h3 class="font-heading text-xl uppercase font-semibold mb-3">Séances de code</h3>
+          <div class="overflow-x-auto">
+            <table class="horaire-table">
+              <thead>
+                <tr><th>Jour</th><th>Horaires</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Mardi</td><td>17h30 & 18h30</td></tr>
+                <tr><td>Mercredi</td><td>14h, 17h30 & 18h30</td></tr>
+                <tr><td>Jeudi</td><td>17h30 & 18h30</td></tr>
+                <tr><td>Samedi</td><td>13h & 14h</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
       <h3 class="font-heading text-xl uppercase font-semibold mb-3">Nous trouver</h3>
@@ -1275,53 +1752,11 @@
     </div>
   </div>
 
-  <!-- POURQUOI PAS A DOMICILE -->
-  <div class="bg-white py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl">Pourquoi nous ne prenons plus les élèves à domicile depuis 2020 ?</h2>
-      <div class="mb-6 md:mb-8 h-48 md:h-72 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=80" alt="Route et apprentissage" class="w-full h-full object-cover" />
-      </div>
-      <div class="prose text-gray-700 leading-relaxed space-y-4">
-        <p>
-          Depuis 2020, l'École Villars a fait le choix de ne plus assurer la prise en charge des élèves à leur domicile.
-          Cette décision, mûrement réfléchie, repose sur plusieurs raisons concrètes liées à la qualité de notre enseignement
-          et à l'organisation de nos plannings.
-        </p>
-        <p>
-          <strong>Une question de temps pédagogique.</strong> Le temps passé sur la route pour aller chercher un élève
-          ne fait pas partie de la leçon. Quand un moniteur parcourt 15 à 20 minutes pour récupérer un candidat,
-          c'est autant de minutes en moins de conduite réellement utiles à l'apprentissage.
-          En partant des agences, nous garantissons à chacun un volume de conduite effective conforme à ce qui est facturé.
-        </p>
-        <p>
-          <strong>Une question d'équité entre élèves.</strong> Si certains habitent à 2 minutes du bureau et d'autres
-          à 20 minutes, le moniteur ne peut pas accorder le même nombre d'heures réelles à tout le monde dans une même journée.
-          Le départ depuis l'agence rétablit l'égalité de traitement.
-        </p>
-        <p>
-          <strong>Une question d'organisation.</strong> Les horaires d'examen, les imprévus de circulation et les changements
-          de planning sont beaucoup plus simples à gérer quand tout le monde se retrouve à un point fixe.
-          Cela nous permet aussi d'optimiser les plannings et de proposer davantage de créneaux à nos élèves.
-        </p>
-        <p>
-          <strong>Une question d'efficacité.</strong> Démarrer une leçon depuis le centre-ville permet d'aborder rapidement
-          des situations de circulation variées (giratoires, intersections, priorités), indispensables à la préparation de l'examen.
-          C'est pédagogiquement bien plus riche qu'un trajet répétitif depuis un domicile.
-        </p>
-        <p class="text-gray-600 italic">
-          Nous restons bien sûr disponibles pour vous aider à organiser votre venue : nos agences sont situées dans des zones
-          desservies par les transports en commun et facilement accessibles.
-        </p>
-      </div>
-    </div>
-  </div>
-
 </section>
 
 
 <!-- ============================================== -->
-<!-- PAGE 5 : CONTACT                                -->
+<!-- PAGE CONTACT                                    -->
 <!-- ============================================== -->
 <section id="page-contact" class="page-section">
 
@@ -1333,7 +1768,7 @@
       <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Contact</h1>
       <p class="text-gray-200 text-lg max-w-3xl">
         Une question, une demande d'inscription, un devis pour un forfait ? Remplissez le formulaire ci-dessous,
-        nous vous répondrons sous 48h ouvrées.
+        nous vous répondrons dans les plus brefs délais.
       </p>
     </div>
   </div>
@@ -1348,27 +1783,27 @@
           <form id="contactForm" class="space-y-5" novalidate>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label for="nom" class="form-label">Nom *</label>
+                <label for="nom" class="form-label">Nom</label>
                 <input type="text" id="nom" name="nom" class="form-input" required />
               </div>
               <div>
-                <label for="prenom" class="form-label">Prénom *</label>
+                <label for="prenom" class="form-label">Prénom</label>
                 <input type="text" id="prenom" name="prenom" class="form-input" required />
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label for="telephone" class="form-label">Téléphone *</label>
+                <label for="telephone" class="form-label">Téléphone</label>
                 <input type="tel" id="telephone" name="telephone" class="form-input" required />
               </div>
               <div>
-                <label for="email" class="form-label">Email *</label>
+                <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" name="email" class="form-input" required />
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label for="agence" class="form-label">Agence *</label>
+                <label for="agence" class="form-label">Agence</label>
                 <select id="agence" name="agence" class="form-input" required>
                   <option value="">— Choisir une agence —</option>
                   <option value="denain">Denain</option>
@@ -1376,12 +1811,11 @@
                 </select>
               </div>
               <div>
-                <label for="formation" class="form-label">Formation souhaitée *</label>
+                <label for="formation" class="form-label">Formation souhaitée</label>
                 <select id="formation" name="formation" class="form-input" required>
                   <option value="">— Choisir une formation —</option>
                   <option>Permis B — Forfait 13h Automatique</option>
-                  <option>Permis B — Forfait 20h Automatique</option>
-                  <option>Permis B — Forfait 20h Manuel</option>
+                  <option>Permis B — Forfait 20h Automatique ou Manuel</option>
                   <option>Permis B — Forfait 30h</option>
                   <option>Conduite Accompagnée (AAC)</option>
                   <option>Permis Moto (Forfait avec ETM)</option>
@@ -1399,13 +1833,13 @@
             </div>
             <div class="flex items-start gap-3 text-sm text-gray-600">
               <input type="checkbox" id="rgpd" class="mt-1" required />
-              <label for="rgpd">J'accepte que mes informations soient utilisées pour me recontacter. *</label>
+              <label for="rgpd">J'accepte que mes informations soient utilisées pour me recontacter.</label>
             </div>
             <div>
               <button type="submit" class="btn-primary">Envoyer ma demande</button>
             </div>
             <div id="formSuccess" class="hidden info-box" style="background:#F0F9F0;border-left-color:#22863A;color:#1A4A1A;">
-              Merci ! Votre message a bien été envoyé. Nous vous recontacterons sous 48h ouvrées.
+              Merci ! Votre message a bien été envoyé. Nous vous recontacterons dans les plus brefs délais.
             </div>
           </form>
         </div>
@@ -1433,18 +1867,13 @@
             <a href="mailto:autoecolevillars@orange.fr" class="text-villars-red break-all">autoecolevillars@orange.fr</a>
           </div>
 
-          <div class="mt-6 h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1556122071-e404cb6f31c0?auto=format&fit=crop&w=900&q=80" alt="Accueil agence" class="w-full h-full object-cover" />
-          </div>
-
           <div class="info-box mt-6">
-            <strong>Facilités de paiement :</strong> nous proposons le paiement en plusieurs fois <strong>4x ou 6x sans frais</strong> sur la majorité de nos forfaits. Renseignez-vous en agence.
+            <strong>Facilités de paiement :</strong> nous proposons le paiement en plusieurs fois <strong>4, 5 ou 6x sans frais</strong> sur la majorité de nos forfaits. Renseignez-vous en agence.
           </div>
 
           <div class="info-box mt-4">
             <strong>Financements partenaires :</strong> nous travaillons avec <strong>France Travail</strong>
             et le <strong>Pass Permis</strong> mis en place par la Mairie de Denain.
-            Précisez votre situation dans le formulaire, nous vous accompagnerons dans les démarches.
           </div>
         </div>
 
@@ -1471,7 +1900,7 @@
           </div>
         </div>
         <p class="text-sm text-gray-400">
-          Plus de 20 ans d'expérience au service des candidats au permis de conduire dans le Nord.
+          Plus de 40 ans d'expérience au service des candidats au permis de conduire dans le Denaisis.
         </p>
       </div>
 
@@ -1493,8 +1922,8 @@
         <h5 class="font-heading uppercase text-white text-sm mb-4 tracking-wider">Navigation</h5>
         <ul class="space-y-2 text-sm">
           <li><a href="#" data-page="accueil" class="page-link hover:text-villars-red">Accueil</a></li>
-          <li><a href="#" data-page="permis-b" class="page-link hover:text-villars-red">Permis B</a></li>
-          <li><a href="#" data-page="permis-moto" class="page-link hover:text-villars-red">Permis Moto</a></li>
+          <li><a href="#" data-page="nos-formations" class="page-link hover:text-villars-red">Nos Formations</a></li>
+          <li><a href="#" data-page="nos-vehicules" class="page-link hover:text-villars-red">Nos Véhicules</a></li>
           <li><a href="#" data-page="horaires" class="page-link hover:text-villars-red">Horaires & Agences</a></li>
           <li><a href="#" data-page="contact" class="page-link hover:text-villars-red">Contact</a></li>
         </ul>
@@ -1511,7 +1940,6 @@
 
 
 <script>
-  // Tab navigation
   const pageLinks = document.querySelectorAll('.page-link');
   const sections = document.querySelectorAll('.page-section');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -1520,16 +1948,20 @@
   const iconClose = document.getElementById('iconClose');
   const menuToggle = document.getElementById('menuToggle');
 
+  const FORMATIONS_PAGES = ['nos-formations', 'permis-b', 'permis-2-roues', 'permis-be'];
+
   function showPage(pageId) {
     sections.forEach(s => s.classList.remove('active'));
     const target = document.getElementById('page-' + pageId);
     if (target) target.classList.add('active');
 
     navLinks.forEach(l => {
-      l.classList.toggle('active', l.dataset.page === pageId);
+      const dp = l.dataset.page;
+      const isActive = dp === pageId
+        || (dp === 'nos-formations' && FORMATIONS_PAGES.includes(pageId));
+      l.classList.toggle('active', isActive);
     });
 
-    // close mobile nav
     if (!mobileNav.classList.contains('hidden')) {
       mobileNav.classList.add('hidden');
       iconMenu.classList.remove('hidden');
@@ -1537,12 +1969,10 @@
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // re-trigger reveals
     observeReveals();
   }
 
-  pageLinks.forEach(link => {
+  document.querySelectorAll('.page-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const page = link.dataset.page;
@@ -1553,10 +1983,9 @@
     });
   });
 
-  // hash routing on load
   function loadFromHash() {
     const hash = window.location.hash.replace('#', '');
-    const valid = ['accueil','permis-b','permis-moto','horaires','contact'];
+    const valid = ['accueil','nos-formations','permis-b','permis-2-roues','permis-be','nos-vehicules','horaires','contact'];
     if (valid.includes(hash)) {
       showPage(hash);
     } else {
@@ -1564,14 +1993,12 @@
     }
   }
 
-  // Hamburger
   menuToggle.addEventListener('click', () => {
     mobileNav.classList.toggle('hidden');
     iconMenu.classList.toggle('hidden');
     iconClose.classList.toggle('hidden');
   });
 
-  // Reveal on scroll
   let revealObserver;
   function observeReveals() {
     if (revealObserver) revealObserver.disconnect();
@@ -1586,7 +2013,6 @@
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
   }
 
-  // Contact form
   document.getElementById('contactForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const form = e.target;
@@ -1599,7 +2025,6 @@
     document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 
-  // Init
   loadFromHash();
   observeReveals();
 </script>
