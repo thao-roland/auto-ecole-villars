@@ -278,7 +278,27 @@
   }
   .tariff-banner strong { color: #CC1F1F; }
   @media (max-width: 768px) {
-    .forfait-price { font-size: 2rem; }
+    .forfait-price { font-size: 1.85rem; }
+    .section-title { margin-bottom: 1.25rem; padding-bottom: 0.5rem; font-size: 1.5rem !important; }
+    .section-title::after { width: 48px; height: 3px; }
+    .tariff-banner { font-size: 0.72rem; padding: 0.4rem 0.75rem; line-height: 1.3; }
+    .btn-primary, .btn-outline { padding: 0.75rem 1.5rem; font-size: 0.9rem; width: 100%; text-align: center; }
+    .info-box { padding: 0.85rem 1rem; font-size: 0.88rem; }
+    .icon-circle { width: 52px; height: 52px; margin-bottom: 0.75rem; }
+    .icon-circle svg { width: 1.6rem; height: 1.6rem; }
+    .forfait-card { padding: 1.25rem !important; }
+    .forfait-list li { padding: 0.4rem 0; font-size: 0.9rem; }
+    .horaire-table th, .horaire-table td { padding: 0.55rem 0.6rem; font-size: 0.82rem; }
+    .horaire-table td:first-child { width: 90px; }
+    .tarif-table th, .tarif-table td { padding: 0.6rem 0.65rem; font-size: 0.85rem; }
+    .form-input { padding: 0.65rem 0.85rem; font-size: 0.92rem; }
+    .form-label { font-size: 0.82rem; }
+    .badge { font-size: 0.68rem; padding: 0.22rem 0.55rem; }
+    h1.font-heading, h1 { letter-spacing: 0; }
+  }
+
+  @media (max-width: 480px) {
+    .tariff-banner { font-size: 0.68rem; }
   }
 </style>
 </head>
@@ -292,15 +312,15 @@
 <!-- HEADER / NAV -->
 <header class="bg-villars-black text-white sticky top-0 z-50 shadow-md">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
+    <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
-      <a href="#" data-page="accueil" class="page-link flex items-center gap-3">
-        <div class="bg-villars-red text-white font-heading font-bold text-2xl w-12 h-12 flex items-center justify-center">
+      <a href="#" data-page="accueil" class="page-link flex items-center gap-2 md:gap-3">
+        <div class="bg-villars-red text-white font-heading font-bold text-xl md:text-2xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
           V
         </div>
         <div class="leading-tight">
-          <div class="font-heading text-lg font-semibold tracking-wider">AUTO-MOTO ÉCOLE</div>
-          <div class="font-heading text-villars-red text-xl font-bold -mt-1">VILLARS</div>
+          <div class="font-heading text-sm md:text-lg font-semibold tracking-wider">AUTO-MOTO ÉCOLE</div>
+          <div class="font-heading text-villars-red text-base md:text-xl font-bold -mt-1">VILLARS</div>
         </div>
       </a>
 
@@ -345,20 +365,20 @@
 <section id="page-accueil" class="page-section active">
 
   <!-- HERO -->
-  <div class="relative h-[520px] md:h-[600px] overflow-hidden">
+  <div class="relative h-[460px] md:h-[600px] overflow-hidden">
     <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80"
          alt="Leçon de conduite sur route" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 hero-overlay"></div>
     <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
       <div class="max-w-2xl text-white">
-        <span class="badge badge-red mb-4">Depuis plus de 20 ans</span>
-        <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-4">
+        <span class="badge badge-red mb-3 md:mb-4">Depuis plus de 20 ans</span>
+        <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-3 md:mb-4">
           Votre permis de conduire avec l'École Villars
         </h1>
-        <p class="text-lg md:text-xl mb-8 text-gray-100 font-light">
+        <p class="text-base md:text-xl mb-6 md:mb-8 text-gray-100 font-light">
           2 agences à Denain et Petite-Forêt — Une équipe de moniteurs expérimentés à votre service depuis plus de 20 ans.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <a href="#" data-page="permis-b" class="page-link btn-primary">Voir nos forfaits</a>
           <a href="#" data-page="contact" class="page-link btn-outline" style="color: white; border-color: white;">Nous contacter</a>
         </div>
@@ -367,7 +387,7 @@
   </div>
 
   <!-- 4 AVANTAGES -->
-  <div class="bg-white py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
         <div class="text-center">
@@ -403,13 +423,13 @@
   </div>
 
   <!-- BANDEAU AGENCES -->
-  <div class="bg-villars-gray py-16">
+  <div class="bg-villars-gray py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl text-center">Nos deux agences</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
 
         <div class="agence-card overflow-hidden">
-          <div class="h-56 overflow-hidden">
+          <div class="h-44 md:h-56 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80" alt="Agence Villars Denain" class="w-full h-full object-cover" />
           </div>
           <div class="p-8">
@@ -437,7 +457,7 @@
         </div>
 
         <div class="agence-card overflow-hidden">
-          <div class="h-56 overflow-hidden">
+          <div class="h-44 md:h-56 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80" alt="Agence Villars Petite-Forêt" class="w-full h-full object-cover" />
           </div>
           <div class="p-8">
@@ -469,12 +489,12 @@
   </div>
 
   <!-- POURQUOI NOUS CHOISIR -->
-  <div class="bg-white py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         <div class="reveal">
-          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1000&q=80" alt="Cours de conduite" class="w-full h-[500px] object-cover" />
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1000&q=80" alt="Cours de conduite" class="w-full h-64 md:h-[500px] object-cover" />
         </div>
 
         <div>
@@ -522,12 +542,12 @@
   </div>
 
   <!-- BANDEAU CITATION -->
-  <div class="relative h-80 overflow-hidden">
+  <div class="relative h-64 md:h-80 overflow-hidden">
     <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1920&q=80" alt="Route" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.65));"></div>
     <div class="relative h-full max-w-4xl mx-auto px-4 flex flex-col items-center justify-center text-center text-white">
       <svg class="w-10 h-10 text-villars-red mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 7h4v10H5V11c0-2.21 1-4 2-4zm10 0h-4v10h6V11c0-2.21-1-4-2-4z"/></svg>
-      <p class="font-heading text-2xl md:text-3xl uppercase leading-snug max-w-2xl">
+      <p class="font-heading text-lg md:text-3xl uppercase leading-snug max-w-2xl">
         « Plus qu'une auto-école, une équipe à l'écoute pour vous emmener jusqu'au permis. »
       </p>
       <p class="mt-4 text-villars-red font-heading tracking-widest text-sm">L'École Villars</p>
@@ -535,7 +555,7 @@
   </div>
 
   <!-- FINANCEMENTS -->
-  <div class="bg-villars-gray py-16">
+  <div class="bg-villars-gray py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <span class="badge badge-red">Financez votre permis</span>
@@ -616,10 +636,10 @@
   </div>
 
   <!-- CTA -->
-  <div class="bg-villars-black py-16 text-center">
+  <div class="bg-villars-black py-12 md:py-16 text-center">
     <div class="max-w-3xl mx-auto px-4">
-      <h2 class="font-heading text-3xl md:text-4xl text-white uppercase font-bold mb-4">Prêt à passer votre permis ?</h2>
-      <p class="text-gray-300 mb-8 text-lg">Contactez-nous pour une évaluation personnalisée ou inscrivez-vous directement en agence.</p>
+      <h2 class="font-heading text-2xl md:text-4xl text-white uppercase font-bold mb-3 md:mb-4">Prêt à passer votre permis ?</h2>
+      <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg">Contactez-nous pour une évaluation personnalisée ou inscrivez-vous directement en agence.</p>
       <a href="#" data-page="contact" class="page-link btn-primary">Demander une inscription</a>
     </div>
   </div>
@@ -633,7 +653,7 @@
 <section id="page-permis-b" class="page-section">
 
   <!-- Page header -->
-  <div class="relative text-white py-20 overflow-hidden">
+  <div class="relative text-white py-12 md:py-20 overflow-hidden">
     <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1920&q=80" alt="Voiture sur route" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.65));"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -663,14 +683,14 @@
           </p>
         </div>
         <div class="reveal">
-          <img src="https://images.unsplash.com/photo-1485463611174-f302f6a5c1c9?auto=format&fit=crop&w=900&q=80" alt="Volant et tableau de bord" class="w-full h-80 object-cover" />
+          <img src="https://images.unsplash.com/photo-1485463611174-f302f6a5c1c9?auto=format&fit=crop&w=900&q=80" alt="Volant et tableau de bord" class="w-full h-56 md:h-80 object-cover" />
         </div>
       </div>
     </div>
   </div>
 
   <!-- FORFAITS -->
-  <div class="bg-villars-gray py-16">
+  <div class="bg-villars-gray py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl text-center">Nos forfaits Permis B</h2>
 
@@ -749,7 +769,7 @@
               <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Conduite accompagnée" class="w-full h-full object-cover" />
             </div>
             <div class="md:col-span-3 p-6">
-              <div class="flex items-center gap-3 mb-3">
+              <div class="flex flex-wrap items-center gap-2 mb-3">
                 <span class="badge badge-red">Dès 15 ans</span>
                 <span class="badge">Conduite Accompagnée</span>
               </div>
@@ -852,7 +872,7 @@
 <!-- ============================================== -->
 <section id="page-permis-moto" class="page-section">
 
-  <div class="relative text-white py-20 overflow-hidden">
+  <div class="relative text-white py-12 md:py-20 overflow-hidden">
     <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80" alt="Moto sur route" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.6));"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -866,7 +886,7 @@
   </div>
 
   <!-- FORFAIT MOTO -->
-  <div class="bg-white py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Forfait Moto avec ETM</h2>
 
@@ -895,7 +915,7 @@
   </div>
 
   <!-- AUTRES FORFAITS -->
-  <div class="bg-villars-gray py-16">
+  <div class="bg-villars-gray py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl text-center">Autres formations deux-roues</h2>
 
@@ -938,7 +958,7 @@
   </div>
 
   <!-- PERMIS BE -->
-  <div class="bg-white py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Permis Remorque BE</h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 reveal">
@@ -978,7 +998,7 @@
   </div>
 
   <!-- EQUIPEMENT -->
-  <div class="bg-villars-gray py-16">
+  <div class="bg-villars-gray py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Équipement obligatoire moto</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 reveal">
@@ -1025,7 +1045,7 @@
   </div>
 
   <!-- VEHICULES -->
-  <div class="bg-white py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Véhicules disponibles</h2>
       <p class="text-gray-600 mb-8 max-w-2xl">Une flotte moderne, régulièrement entretenue, pour vous former dans les meilleures conditions sur tous les segments deux-roues.</p>
@@ -1121,7 +1141,7 @@
 <!-- ============================================== -->
 <section id="page-horaires" class="page-section">
 
-  <div class="relative text-white py-20 overflow-hidden">
+  <div class="relative text-white py-12 md:py-20 overflow-hidden">
     <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1920&q=80" alt="Agenda" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.65));"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1145,7 +1165,7 @@
         </div>
       </div>
 
-      <div class="mb-8 h-64 md:h-80 overflow-hidden">
+      <div class="mb-6 md:mb-8 h-48 md:h-80 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=80" alt="Façade auto-école Denain" class="w-full h-full object-cover" />
       </div>
 
@@ -1188,7 +1208,7 @@
       </div>
 
       <h3 class="font-heading text-xl uppercase font-semibold mb-3">Nous trouver</h3>
-      <div class="aspect-w-16 aspect-h-9 bg-gray-200" style="height: 400px;">
+      <div class="bg-gray-200 h-72 md:h-[400px]">
         <iframe
           src="https://www.google.com/maps?q=89+rue+de+Villars+59220+Denain&output=embed"
           width="100%" height="100%" style="border:0;" loading="lazy"
@@ -1209,7 +1229,7 @@
         </div>
       </div>
 
-      <div class="mb-8 h-64 md:h-80 overflow-hidden">
+      <div class="mb-6 md:mb-8 h-48 md:h-80 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1471174466864-1c4ed1d1f0d6?auto=format&fit=crop&w=1400&q=80" alt="Façade auto-école Petite-Forêt" class="w-full h-full object-cover" />
       </div>
 
@@ -1246,7 +1266,7 @@
       </div>
 
       <h3 class="font-heading text-xl uppercase font-semibold mb-3">Nous trouver</h3>
-      <div class="bg-gray-200" style="height: 400px;">
+      <div class="bg-gray-200 h-72 md:h-[400px]">
         <iframe
           src="https://www.google.com/maps?q=15+rue+Hyacinthe+Mars+59494+Petite-Foret&output=embed"
           width="100%" height="100%" style="border:0;" loading="lazy"
@@ -1259,7 +1279,7 @@
   <div class="bg-white py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Pourquoi nous ne prenons plus les élèves à domicile depuis 2020 ?</h2>
-      <div class="mb-8 h-72 overflow-hidden">
+      <div class="mb-6 md:mb-8 h-48 md:h-72 overflow-hidden">
         <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=80" alt="Route et apprentissage" class="w-full h-full object-cover" />
       </div>
       <div class="prose text-gray-700 leading-relaxed space-y-4">
@@ -1305,7 +1325,7 @@
 <!-- ============================================== -->
 <section id="page-contact" class="page-section">
 
-  <div class="relative text-white py-20 overflow-hidden">
+  <div class="relative text-white py-12 md:py-20 overflow-hidden">
     <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1920&q=80" alt="Contact" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.65));"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1318,7 +1338,7 @@
     </div>
   </div>
 
-  <div class="bg-white py-16">
+  <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
