@@ -408,7 +408,11 @@
       <h2 class="section-title text-3xl text-center">Nos deux agences</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
 
-        <div class="agence-card p-8">
+        <div class="agence-card overflow-hidden">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80" alt="Agence Villars Denain" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-8">
           <div class="flex items-start justify-between mb-4">
             <h3 class="font-heading text-2xl font-bold uppercase">Agence de Denain</h3>
             <span class="badge">Siège</span>
@@ -429,9 +433,14 @@
             <p class="text-xs text-gray-500 pt-2 border-t border-gray-200">Agrément E1605900200</p>
           </div>
           <a href="#" data-page="horaires" class="page-link inline-block mt-4 text-villars-red font-heading uppercase font-semibold text-sm tracking-wider hover:underline">Voir les horaires détaillés &rarr;</a>
+          </div>
         </div>
 
-        <div class="agence-card p-8">
+        <div class="agence-card overflow-hidden">
+          <div class="h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80" alt="Agence Villars Petite-Forêt" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-8">
           <div class="flex items-start justify-between mb-4">
             <h3 class="font-heading text-2xl font-bold uppercase">Agence de Petite-Forêt</h3>
             <span class="badge">Bureau</span>
@@ -452,6 +461,7 @@
             <p class="text-xs text-gray-500 pt-2 border-t border-gray-200">Agrément E2005900190</p>
           </div>
           <a href="#" data-page="horaires" class="page-link inline-block mt-4 text-villars-red font-heading uppercase font-semibold text-sm tracking-wider hover:underline">Voir les horaires détaillés &rarr;</a>
+          </div>
         </div>
 
       </div>
@@ -461,37 +471,66 @@
   <!-- POURQUOI NOUS CHOISIR -->
   <div class="bg-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-3xl text-center">Pourquoi nous choisir ?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12 reveal">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        <div>
-          <div class="text-villars-red font-heading text-5xl font-bold mb-3">01</div>
-          <h3 class="font-heading text-xl uppercase font-semibold mb-3">Une école de proximité</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Établie depuis plus de 20 ans dans la région du Hainaut, l'École Villars vous accueille dans une ambiance conviviale et familiale.
-            Nous connaissons votre quartier, vos routes et les itinéraires d'examen.
-          </p>
+        <div class="reveal">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1000&q=80" alt="Cours de conduite" class="w-full h-[500px] object-cover" />
         </div>
 
         <div>
-          <div class="text-villars-red font-heading text-5xl font-bold mb-3">02</div>
-          <h3 class="font-heading text-xl uppercase font-semibold mb-3">Une pédagogie sur mesure</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Évaluation de départ, suivi personnalisé, livret pédagogique : chaque élève avance à son rythme.
-            Nos moniteurs adaptent leur méthode à votre niveau et à vos objectifs.
-          </p>
-        </div>
+          <h2 class="section-title text-3xl">Pourquoi nous choisir ?</h2>
+          <div class="space-y-8 reveal">
 
-        <div>
-          <div class="text-villars-red font-heading text-5xl font-bold mb-3">03</div>
-          <h3 class="font-heading text-xl uppercase font-semibold mb-3">Toutes les catégories</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Permis B (boîte manuelle ou automatique), conduite accompagnée (AAC), permis moto A1/A2,
-            formations 125, BSR/AM, permis remorque BE : nous proposons l'ensemble des formations.
-          </p>
+            <div class="flex gap-5">
+              <div class="text-villars-red font-heading text-4xl font-bold leading-none">01</div>
+              <div>
+                <h3 class="font-heading text-xl uppercase font-semibold mb-2">Une école de proximité</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Établie depuis plus de 20 ans dans la région du Hainaut, l'École Villars vous accueille dans une ambiance conviviale et familiale.
+                  Nous connaissons votre quartier, vos routes et les itinéraires d'examen.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="text-villars-red font-heading text-4xl font-bold leading-none">02</div>
+              <div>
+                <h3 class="font-heading text-xl uppercase font-semibold mb-2">Une pédagogie sur mesure</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Évaluation de départ, suivi personnalisé, livret pédagogique : chaque élève avance à son rythme.
+                  Nos moniteurs adaptent leur méthode à votre niveau et à vos objectifs.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="text-villars-red font-heading text-4xl font-bold leading-none">03</div>
+              <div>
+                <h3 class="font-heading text-xl uppercase font-semibold mb-2">Toutes les catégories</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Permis B (boîte manuelle ou automatique), conduite accompagnée (AAC), permis moto A1/A2,
+                  formations 125, BSR/AM, permis remorque BE : nous proposons l'ensemble des formations.
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
+    </div>
+  </div>
+
+  <!-- BANDEAU CITATION -->
+  <div class="relative h-80 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1920&q=80" alt="Route" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.75), rgba(26,26,26,0.65));"></div>
+    <div class="relative h-full max-w-4xl mx-auto px-4 flex flex-col items-center justify-center text-center text-white">
+      <svg class="w-10 h-10 text-villars-red mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 7h4v10H5V11c0-2.21 1-4 2-4zm10 0h-4v10h6V11c0-2.21-1-4-2-4z"/></svg>
+      <p class="font-heading text-2xl md:text-3xl uppercase leading-snug max-w-2xl">
+        « Plus qu'une auto-école, une équipe à l'écoute pour vous emmener jusqu'au permis. »
+      </p>
+      <p class="mt-4 text-villars-red font-heading tracking-widest text-sm">L'École Villars</p>
     </div>
   </div>
 
@@ -594,11 +633,13 @@
 <section id="page-permis-b" class="page-section">
 
   <!-- Page header -->
-  <div class="bg-villars-black text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative text-white py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1920&q=80" alt="Voiture sur route" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.65));"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="badge badge-red mb-3">Catégorie B</span>
       <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Permis B — Voiture</h1>
-      <p class="text-gray-300 text-lg max-w-3xl">
+      <p class="text-gray-200 text-lg max-w-3xl">
         Boîte manuelle, boîte automatique ou conduite accompagnée : choisissez la formule qui vous correspond.
         Tous nos forfaits incluent le code, les heures de conduite et l'accompagnement à l'examen.
       </p>
@@ -608,17 +649,22 @@
   <!-- Intro -->
   <div class="bg-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <h2 class="section-title text-2xl">Le permis B en bref</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-          Le permis B vous autorise à conduire une voiture particulière, dès 17 ans pour l'examen pratique
-          (et 15 ans dans le cadre de la Conduite Accompagnée). La formation comprend une partie théorique (le Code de la route)
-          et une partie pratique (les heures de conduite avec un moniteur diplômé).
-        </p>
-        <p class="text-gray-700 leading-relaxed">
-          Chez Villars, l'inscription débute toujours par une <strong>évaluation de départ</strong> qui nous permet
-          de déterminer ensemble le volume d'heures le mieux adapté à votre profil.
-        </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="section-title text-2xl">Le permis B en bref</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Le permis B vous autorise à conduire une voiture particulière, dès 17 ans pour l'examen pratique
+            (et 15 ans dans le cadre de la Conduite Accompagnée). La formation comprend une partie théorique (le Code de la route)
+            et une partie pratique (les heures de conduite avec un moniteur diplômé).
+          </p>
+          <p class="text-gray-700 leading-relaxed">
+            Chez Villars, l'inscription débute toujours par une <strong>évaluation de départ</strong> qui nous permet
+            de déterminer ensemble le volume d'heures le mieux adapté à votre profil.
+          </p>
+        </div>
+        <div class="reveal">
+          <img src="https://images.unsplash.com/photo-1485463611174-f302f6a5c1c9?auto=format&fit=crop&w=900&q=80" alt="Volant et tableau de bord" class="w-full h-80 object-cover" />
+        </div>
       </div>
     </div>
   </div>
@@ -697,30 +743,37 @@
         </div>
 
         <!-- AAC -->
-        <div class="forfait-card p-6 md:col-span-2" style="border-top-color: #1A1A1A;">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="badge badge-red">Dès 15 ans</span>
-            <span class="badge">Conduite Accompagnée</span>
-          </div>
-          <h3 class="font-heading text-2xl font-bold uppercase mb-2">Forfait AAC — Conduite Accompagnée</h3>
-          <div class="forfait-price mb-4">1 299 €</div>
-          <p class="text-gray-600 mb-4 text-sm">
-            Accessible dès 15 ans, la conduite accompagnée permet de gagner en expérience aux côtés d'un accompagnateur,
-            avant le passage de l'examen pratique. Une formule complète qui augmente significativement les chances de réussite.
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-            <ul class="forfait-list">
-              <li><span class="check-icon">✓</span> Frais administratifs</li>
-              <li><span class="check-icon">✓</span> Forfait Code — accès illimité 1 an</li>
-              <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
-              <li><span class="check-icon">✓</span> <strong>22 heures de conduite</strong></li>
-            </ul>
-            <ul class="forfait-list">
-              <li><span class="check-icon">✓</span> 2 rendez-vous pédagogiques</li>
-              <li><span class="check-icon">✓</span> Livret de conduite accompagnée</li>
-              <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
-              <li><span class="check-icon">✓</span> Kit pédagogique</li>
-            </ul>
+        <div class="forfait-card md:col-span-2 overflow-hidden" style="border-top-color: #1A1A1A;">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-0">
+            <div class="md:col-span-2 h-64 md:h-auto overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Conduite accompagnée" class="w-full h-full object-cover" />
+            </div>
+            <div class="md:col-span-3 p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="badge badge-red">Dès 15 ans</span>
+                <span class="badge">Conduite Accompagnée</span>
+              </div>
+              <h3 class="font-heading text-2xl font-bold uppercase mb-2">Forfait AAC — Conduite Accompagnée</h3>
+              <div class="forfait-price mb-4">1 299 €</div>
+              <p class="text-gray-600 mb-4 text-sm">
+                Accessible dès 15 ans, la conduite accompagnée permet de gagner en expérience aux côtés d'un accompagnateur,
+                avant le passage de l'examen pratique. Une formule complète qui augmente significativement les chances de réussite.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                <ul class="forfait-list">
+                  <li><span class="check-icon">✓</span> Frais administratifs</li>
+                  <li><span class="check-icon">✓</span> Forfait Code — accès illimité 1 an</li>
+                  <li><span class="check-icon">✓</span> Prépacode — 160 séries — 6 mois</li>
+                  <li><span class="check-icon">✓</span> <strong>22 heures de conduite</strong></li>
+                </ul>
+                <ul class="forfait-list">
+                  <li><span class="check-icon">✓</span> 2 rendez-vous pédagogiques</li>
+                  <li><span class="check-icon">✓</span> Livret de conduite accompagnée</li>
+                  <li><span class="check-icon">✓</span> Frais accompagnement examen pratique</li>
+                  <li><span class="check-icon">✓</span> Kit pédagogique</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -799,11 +852,13 @@
 <!-- ============================================== -->
 <section id="page-permis-moto" class="page-section">
 
-  <div class="bg-villars-black text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative text-white py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1920&q=80" alt="Moto sur route" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.6));"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="badge badge-red mb-3">Catégories A1 / A2 / AM / 125 / BE</span>
       <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Permis Moto & Formations</h1>
-      <p class="text-gray-300 text-lg max-w-3xl">
+      <p class="text-gray-200 text-lg max-w-3xl">
         Scooter, 125, A2, passage A, remorque… L'École Villars vous accompagne sur l'ensemble des formations
         deux-roues et complémentaires, avec une flotte moderne et entretenue.
       </p>
@@ -973,31 +1028,67 @@
   <div class="bg-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Véhicules disponibles</h2>
+      <p class="text-gray-600 mb-8 max-w-2xl">Une flotte moderne, régulièrement entretenue, pour vous former dans les meilleures conditions sur tous les segments deux-roues.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
 
-        <div class="bg-villars-gray p-6 border-l-4 border-villars-red">
-          <h4 class="font-heading uppercase text-lg font-semibold mb-1">2 Scooters Électriques</h4>
-          <p class="text-gray-600">NIU — équivalent 50 cm³</p>
+        <div class="bg-white border border-villars-border overflow-hidden">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601894782904-d4e90ad8e1a4?auto=format&fit=crop&w=700&q=80" alt="Scooter électrique" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <h4 class="font-heading uppercase text-lg font-semibold mb-1">2 Scooters Électriques</h4>
+            <p class="text-gray-600 text-sm">NIU — équivalent 50 cm³</p>
+          </div>
         </div>
-        <div class="bg-villars-gray p-6 border-l-4 border-villars-red">
-          <h4 class="font-heading uppercase text-lg font-semibold mb-1">Moto 125 cm³</h4>
-          <p class="text-gray-600">Honda CBF</p>
+
+        <div class="bg-white border border-villars-border overflow-hidden">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=700&q=80" alt="Honda CBF 125" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Moto 125 cm³</h4>
+            <p class="text-gray-600 text-sm">Honda CBF</p>
+          </div>
         </div>
-        <div class="bg-villars-gray p-6 border-l-4 border-villars-red">
-          <h4 class="font-heading uppercase text-lg font-semibold mb-1">Harley Davidson</h4>
-          <p class="text-gray-600">Pan America 1250</p>
+
+        <div class="bg-white border border-villars-border overflow-hidden">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=700&q=80" alt="Harley Davidson Pan America" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Harley Davidson</h4>
+            <p class="text-gray-600 text-sm">Pan America 1250</p>
+          </div>
         </div>
-        <div class="bg-villars-gray p-6 border-l-4 border-villars-red">
-          <h4 class="font-heading uppercase text-lg font-semibold mb-1">Indian</h4>
-          <p class="text-gray-600">1200 FTR</p>
+
+        <div class="bg-white border border-villars-border overflow-hidden">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568708246904-aacaca28f8c0?auto=format&fit=crop&w=700&q=80" alt="Indian FTR 1200" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Indian</h4>
+            <p class="text-gray-600 text-sm">1200 FTR</p>
+          </div>
         </div>
-        <div class="bg-villars-gray p-6 border-l-4 border-villars-red">
-          <h4 class="font-heading uppercase text-lg font-semibold mb-1">Citroën AMI</h4>
-          <p class="text-gray-600">Pour formation AM / BSR</p>
+
+        <div class="bg-white border border-villars-border overflow-hidden">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=700&q=80" alt="Citroën AMI" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red">
+            <h4 class="font-heading uppercase text-lg font-semibold mb-1">Citroën AMI</h4>
+            <p class="text-gray-600 text-sm">Pour formation AM / BSR</p>
+          </div>
         </div>
-        <div class="bg-villars-black text-white p-6 border-l-4 border-villars-red">
-          <h4 class="font-heading uppercase text-lg font-semibold mb-1 text-villars-red">Point de RDV pratique</h4>
-          <p>73 rue Barbusse<br/>59220 Denain</p>
+
+        <div class="bg-villars-black text-white overflow-hidden flex flex-col">
+          <div class="h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1530653333484-8e6cae1d2f63?auto=format&fit=crop&w=700&q=80" alt="Point de rendez-vous" class="w-full h-full object-cover opacity-70" />
+          </div>
+          <div class="p-5 border-l-4 border-villars-red flex-1">
+            <h4 class="font-heading uppercase text-lg font-semibold mb-1 text-villars-red">Point de RDV pratique</h4>
+            <p class="text-sm">73 rue Barbusse<br/>59220 Denain</p>
+          </div>
         </div>
 
       </div>
@@ -1030,11 +1121,13 @@
 <!-- ============================================== -->
 <section id="page-horaires" class="page-section">
 
-  <div class="bg-villars-black text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative text-white py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1920&q=80" alt="Agenda" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.65));"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="badge badge-red mb-3">2 agences à votre service</span>
       <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Horaires & Agences</h1>
-      <p class="text-gray-300 text-lg max-w-3xl">
+      <p class="text-gray-200 text-lg max-w-3xl">
         Retrouvez ci-dessous les horaires d'ouverture des bureaux et des séances de code de nos deux agences.
       </p>
     </div>
@@ -1050,6 +1143,10 @@
           <h2 class="font-heading text-3xl uppercase font-bold mt-2">Agence de Denain</h2>
           <p class="text-gray-600 mt-1">89 rue de Villars, 59220 Denain — <a href="tel:0327432123" class="text-villars-red font-semibold">03.27.43.21.23</a></p>
         </div>
+      </div>
+
+      <div class="mb-8 h-64 md:h-80 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=80" alt="Façade auto-école Denain" class="w-full h-full object-cover" />
       </div>
 
       <h3 class="font-heading text-xl uppercase font-semibold mb-3">Horaires du bureau</h3>
@@ -1112,6 +1209,10 @@
         </div>
       </div>
 
+      <div class="mb-8 h-64 md:h-80 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1471174466864-1c4ed1d1f0d6?auto=format&fit=crop&w=1400&q=80" alt="Façade auto-école Petite-Forêt" class="w-full h-full object-cover" />
+      </div>
+
       <h3 class="font-heading text-xl uppercase font-semibold mb-3">Horaires du bureau</h3>
       <div class="overflow-x-auto mb-8">
         <table class="horaire-table">
@@ -1158,6 +1259,9 @@
   <div class="bg-white py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Pourquoi nous ne prenons plus les élèves à domicile depuis 2020 ?</h2>
+      <div class="mb-8 h-72 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=80" alt="Route et apprentissage" class="w-full h-full object-cover" />
+      </div>
       <div class="prose text-gray-700 leading-relaxed space-y-4">
         <p>
           Depuis 2020, l'École Villars a fait le choix de ne plus assurer la prise en charge des élèves à leur domicile.
@@ -1201,11 +1305,13 @@
 <!-- ============================================== -->
 <section id="page-contact" class="page-section">
 
-  <div class="bg-villars-black text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative text-white py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1920&q=80" alt="Contact" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0" style="background: linear-gradient(rgba(26,26,26,0.85), rgba(26,26,26,0.65));"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="badge badge-red mb-3">Nous écrire</span>
       <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Contact</h1>
-      <p class="text-gray-300 text-lg max-w-3xl">
+      <p class="text-gray-200 text-lg max-w-3xl">
         Une question, une demande d'inscription, un devis pour un forfait ? Remplissez le formulaire ci-dessous,
         nous vous répondrons sous 48h ouvrées.
       </p>
@@ -1305,6 +1411,10 @@
           <div class="bg-villars-black text-white p-6">
             <h4 class="font-heading uppercase font-semibold mb-2">Email</h4>
             <a href="mailto:autoecolevillars@orange.fr" class="text-villars-red break-all">autoecolevillars@orange.fr</a>
+          </div>
+
+          <div class="mt-6 h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1556122071-e404cb6f31c0?auto=format&fit=crop&w=900&q=80" alt="Accueil agence" class="w-full h-full object-cover" />
           </div>
 
           <div class="info-box mt-6">
