@@ -362,6 +362,40 @@
     line-height: 1;
   }
   .avis-stars { color: #F5B400; letter-spacing: 2px; }
+  /* Photo placeholder — cadre vide "photo a venir" */
+  .photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: repeating-linear-gradient(45deg, #F5F5F5, #F5F5F5 12px, #EDEDED 12px, #EDEDED 24px);
+    border: 2px dashed #CC1F1F;
+    color: #555;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 1.5rem;
+    min-height: 220px;
+    width: 100%;
+    height: 100%;
+  }
+  .photo-placeholder svg {
+    color: #CC1F1F;
+    width: 42px;
+    height: 42px;
+  }
+  .photo-placeholder small {
+    display: block;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #999;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75rem;
+    margin-top: 0.15rem;
+  }
   /* Schema BE */
   .schema-row {
     display: flex;
@@ -449,10 +483,17 @@
         <a href="#" data-page="contact" class="page-link nav-link">Contact</a>
       </nav>
 
-      <!-- Tel desktop -->
-      <div class="hidden lg:flex flex-col items-end leading-tight">
-        <span class="text-xs uppercase tracking-wider text-gray-400">Denain</span>
-        <a href="tel:0327432123" class="font-heading text-villars-red text-lg font-semibold">03.27.43.21.23</a>
+      <!-- Tel desktop (Denain + Petite-Forêt) -->
+      <div class="hidden lg:flex items-center gap-5 leading-tight">
+        <div class="flex flex-col items-end">
+          <span class="text-[0.65rem] uppercase tracking-wider text-gray-400">Denain</span>
+          <a href="tel:0327432123" class="font-heading text-villars-red text-base font-semibold">03.27.43.21.23</a>
+        </div>
+        <div class="w-px h-8 bg-gray-700"></div>
+        <div class="flex flex-col items-end">
+          <span class="text-[0.65rem] uppercase tracking-wider text-gray-400">Petite-Forêt</span>
+          <a href="tel:0327352236" class="font-heading text-villars-red text-base font-semibold">03.27.35.22.36</a>
+        </div>
       </div>
 
       <!-- Hamburger -->
@@ -496,7 +537,8 @@
       <div class="max-w-2xl text-white">
         <span class="badge badge-red mb-3 md:mb-4">Depuis plus de 40 ans</span>
         <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-3 md:mb-4">
-          Votre formation à la conduite avec l'Auto-École Villars
+          Votre formation à la conduite<br class="hidden md:block" />
+          <span class="md:hidden"> </span>avec l'Auto-École Villars
         </h1>
         <p class="text-base md:text-xl mb-6 md:mb-8 text-gray-100 font-light">
           2 agences à Denain et Petite-Forêt — Une équipe d'enseignants expérimentés à votre service depuis plus de 40 ans.
@@ -742,7 +784,7 @@
       <p class="font-heading text-lg md:text-3xl uppercase leading-snug max-w-2xl">
         « Plus qu'une auto-école, une équipe à l'écoute pour vous emmener jusqu'au permis. »
       </p>
-      <p class="mt-4 text-villars-red font-heading tracking-widest text-sm">L'École Villars</p>
+      <p class="mt-4 text-villars-red font-heading tracking-widest text-sm">L'Auto-École Villars</p>
     </div>
   </div>
 
@@ -856,7 +898,7 @@
           </p>
           <ul class="space-y-2 text-sm text-gray-700 mb-5">
             <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>Prise en charge possible du <strong>permis B</strong> selon votre projet professionnel</span></li>
-            <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>L'École Villars est <strong>agréée et conventionnée</strong> France Travail</span></li>
+            <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>L'Auto-École Villars est <strong>agréée et conventionnée</strong> France Travail</span></li>
             <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>Nous établissons le devis et le suivi pédagogique demandés par votre conseiller</span></li>
           </ul>
           <div class="info-box text-xs mt-auto">
@@ -873,22 +915,22 @@
               </svg>
             </div>
             <div>
-              <span class="badge">Jeunes Denaisiens</span>
+              <span class="badge">Résidents Denaisiens</span>
               <h3 class="font-heading text-2xl font-bold uppercase mt-1">Pass Permis Denain</h3>
             </div>
           </div>
           <p class="text-gray-700 leading-relaxed mb-4">
             La Mairie de Denain a mis en place le <strong>Pass Permis</strong>, un dispositif d'aide
-            destiné aux jeunes Denaisiens souhaitant financer une partie de leur permis de conduire,
-            en échange d'heures de bénévolat au sein d'associations ou services de la commune.
+            destiné aux résidents denaisiens souhaitant financer une partie de leur permis de conduire,
+            en échange d'heures de bénévolat au service de la commune.
           </p>
           <ul class="space-y-2 text-sm text-gray-700 mb-5">
             <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>Aide versée directement à notre auto-école partenaire</span></li>
-            <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>L'École Villars est <strong>partenaire référencée</strong> du dispositif</span></li>
+            <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>L'Auto-École Villars est <strong>partenaire référencée</strong> du dispositif</span></li>
             <li class="flex items-start gap-2"><span class="check-icon">✓</span><span>Cumulable avec nos facilités de paiement 4, 5 ou 6x sans frais</span></li>
           </ul>
           <div class="info-box text-xs mt-auto">
-            <strong>Comment faire ?</strong> Renseignez-vous auprès du service Jeunesse de la Mairie de Denain
+            <strong>Comment faire ?</strong> Renseignez-vous auprès du CCAS de la Mairie de Denain
             pour constituer votre dossier, puis venez nous voir avec votre accord de prise en charge.
           </div>
         </div>
@@ -901,7 +943,7 @@
   <div class="bg-villars-black py-12 md:py-16 text-center">
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="font-heading text-2xl md:text-4xl text-white uppercase font-bold mb-3 md:mb-4">Prêt à passer votre permis ?</h2>
-      <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg">Contactez-nous pour une évaluation personnalisée ou inscrivez-vous directement en agence.</p>
+      <p class="text-gray-300 mb-6 md:mb-8 text-base md:text-lg max-w-2xl mx-auto">Contactez-nous pour une évaluation personnalisée<br class="hidden md:block" /> ou inscrivez-vous directement en agence.</p>
       <a href="#" data-page="contact" class="page-link btn-primary">Demander une inscription</a>
     </div>
   </div>
@@ -922,7 +964,8 @@
       <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Nos Formations</h1>
       <p class="text-gray-200 text-lg max-w-3xl">
         Du permis voiture à la formation remorque, en passant par toutes les catégories deux-roues,
-        l'École Villars vous accompagne du premier code jusqu'au passage de l'examen.
+        l'Auto-École Villars vous accompagne de la création de votre dossier jusqu'à l'examen pratique,
+        en passant par le passage du code de la route.
       </p>
     </div>
   </div>
@@ -932,8 +975,12 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
 
         <a href="#" data-page="permis-b" class="page-link formation-card flex flex-col">
-          <div class="h-56 overflow-hidden bg-villars-gray">
-            <img src="images/clio.png" alt="Permis B" class="w-full h-full object-cover" />
+          <div class="h-56 overflow-hidden">
+            <div class="photo-placeholder">
+              <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
+              <span>Photo Permis B</span>
+              <small>à fournir par le client</small>
+            </div>
           </div>
           <div class="p-6 flex-1 flex flex-col">
             <span class="badge badge-red w-fit">Catégorie B</span>
@@ -944,8 +991,12 @@
         </a>
 
         <a href="#" data-page="permis-2-roues" class="page-link formation-card flex flex-col">
-          <div class="h-56 overflow-hidden bg-villars-gray">
-            <img src="images/kawasaki-z400.png" alt="Formations 2 Roues" class="w-full h-full object-cover" />
+          <div class="h-56 overflow-hidden">
+            <div class="photo-placeholder">
+              <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
+              <span>Photo Formations 2 Roues</span>
+              <small>à fournir par le client</small>
+            </div>
           </div>
           <div class="p-6 flex-1 flex flex-col">
             <span class="badge badge-red w-fit">A1 / A2 / A / AM / 125</span>
@@ -956,8 +1007,12 @@
         </a>
 
         <a href="#" data-page="permis-be" class="page-link formation-card flex flex-col">
-          <div class="h-56 overflow-hidden bg-villars-gray">
-            <img src="images/skoda-kodiaq.png" alt="Permis BE" class="w-full h-full object-cover" />
+          <div class="h-56 overflow-hidden">
+            <div class="photo-placeholder">
+              <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
+              <span>Photo Permis BE</span>
+              <small>à fournir par le client</small>
+            </div>
           </div>
           <div class="p-6 flex-1 flex flex-col">
             <span class="badge badge-red w-fit">Catégorie BE</span>
@@ -1046,10 +1101,12 @@
             <img src="images/clio.png" alt="Renault Clio boîte manuelle" class="w-full h-full object-cover" />
           </div>
           <div class="p-6">
-            <span class="badge badge-red">Le plus demandé</span>
+            <div class="flex flex-wrap items-center gap-2 mb-1">
+              <span class="badge badge-red">Le plus demandé</span>
+              <span class="badge">Boîte automatique ou manuelle</span>
+            </div>
             <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait B 20h</h3>
             <div class="forfait-price mb-4">1 079 €</div>
-            <p class="text-xs uppercase tracking-wider text-gray-500 font-heading mb-2">Boîte automatique ou manuelle</p>
             <ul class="forfait-list">
               <li><span class="check-icon">✓</span> Frais administratifs</li>
               <li><span class="check-icon">✓</span> Forfait code en salle — accès 1 an</li>
@@ -1142,9 +1199,9 @@
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation Journée Défense et Citoyenneté (pour les 17-25 ans)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation de Recensement (pour les moins de 17 ans)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>ASSR 2 (pour les moins de 21 ans)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis…)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie <em>ou 3 timbres au tarif en vigueur</em></span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis d'imposition…)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers <em>ainsi que la pièce d'identité de l'hébergeur</em></span></li>
         </ul>
       </div>
     </div>
@@ -1169,16 +1226,9 @@
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="badge badge-red mb-3">Catégories A1 / A2 / A / AM / 125</span>
       <h1 class="font-heading text-4xl md:text-5xl uppercase font-bold mb-3">Formations 2 Roues</h1>
-      <p class="text-gray-200 text-lg max-w-3xl mb-4">
-        L'École Villars vous accompagne sur l'ensemble des formations deux-roues, avec une flotte moderne et entretenue.
+      <p class="text-gray-200 text-lg max-w-3xl">
+        L'Auto-École Villars vous accompagne sur l'ensemble des formations deux-roues, avec une flotte moderne et entretenue.
       </p>
-      <div class="bg-black bg-opacity-30 border-l-4 border-villars-red p-4 max-w-2xl">
-        <p class="font-heading uppercase tracking-wider text-villars-red text-sm mb-2">Formation au permis Moto</p>
-        <ul class="text-gray-100 text-sm space-y-1">
-          <li>• Catégorie A1 (125 cm³) dès 16 ans</li>
-          <li>• Catégorie A2 (47,5 chevaux) dès 18 ans</li>
-        </ul>
-      </div>
     </div>
   </div>
 
@@ -1187,15 +1237,25 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="section-title text-3xl">Forfait Moto avec ETM</h2>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
-        <div class="bg-villars-gray">
-          <img src="images/kawasaki-z400.png"
-               alt="Kawasaki Z400 — Moto-école Villars" class="w-full h-80 object-cover" />
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch reveal">
+        <div class="h-80">
+          <div class="photo-placeholder h-full">
+            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
+            <span>Photo Forfait Moto ETM</span>
+            <small>à fournir par le client (à recadrer pour aligner avec le cartouche)</small>
+          </div>
         </div>
         <div class="forfait-card p-8">
           <span class="badge badge-red mb-3">Formation complète</span>
           <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Forfait Moto avec ETM</h3>
           <div class="forfait-price mb-4">790 €</div>
+          <div class="bg-villars-gray border-l-4 border-villars-red p-3 text-sm mb-4">
+            <p class="font-heading uppercase tracking-wider text-villars-red text-xs mb-1">S'applique pour le passage du</p>
+            <ul class="text-gray-700 space-y-0.5">
+              <li>• Permis A1 (125 cm³) dès 16 ans</li>
+              <li>• Permis A2 (47,5 chevaux) dès 18 ans</li>
+            </ul>
+          </div>
           <ul class="forfait-list">
             <li><span class="check-icon">✓</span> Frais administratifs</li>
             <li><span class="check-icon">✓</span> Prépacode moto — 60 séries de 40 questions — 6 mois max.</li>
@@ -1218,36 +1278,40 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 reveal">
 
-        <div class="forfait-card p-6">
-          <span class="badge">AM / BSR — 14 ans</span>
-          <h3 class="font-heading text-xl font-bold uppercase mt-3 mb-2">Formation AM / BSR</h3>
-          <p class="text-sm text-gray-600 mb-3">8 heures de formation pratique obligatoire pour les jeunes nés à partir de 1988.</p>
-          <div class="space-y-2">
-            <div class="flex justify-between border-t border-villars-border pt-2">
-              <span>Scooter (50 cm³)</span>
-              <span class="font-bold text-villars-red">300 €</span>
+        <div class="forfait-card p-8">
+          <span class="badge badge-red mb-3">AM / BSR — Dès 14 ans</span>
+          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Formation AM / BSR</h3>
+          <p class="text-sm text-gray-600 mb-4">8 heures de formation théorique et pratique obligatoires pour les jeunes nés à partir de 1988.</p>
+          <div class="space-y-3 mt-4">
+            <div class="flex justify-between items-center border-t border-villars-border pt-3">
+              <div>
+                <div class="font-heading uppercase text-sm font-semibold">Scooter (50 cm³)</div>
+              </div>
+              <div class="forfait-price text-3xl">300 €</div>
             </div>
-            <div class="flex justify-between border-t border-villars-border pt-2">
-              <span>Citroën AMI</span>
-              <span class="font-bold text-villars-red">340 €</span>
+            <div class="flex justify-between items-center border-t border-villars-border pt-3">
+              <div>
+                <div class="font-heading uppercase text-sm font-semibold">Citroën AMI</div>
+              </div>
+              <div class="forfait-price text-3xl">340 €</div>
             </div>
           </div>
         </div>
 
-        <div class="forfait-card p-6">
-          <span class="badge">125 cm³</span>
-          <h3 class="font-heading text-xl font-bold uppercase mt-3 mb-2">Formation 125</h3>
-          <p class="text-sm text-gray-600 mb-3">7 heures de formation obligatoires pour conduire une 125 cm³ avec un permis B obtenu depuis plus de 2 ans.</p>
-          <div class="forfait-price text-3xl">280 €</div>
-          <p class="text-xs text-gray-500 mt-1">Formation 7h</p>
+        <div class="forfait-card p-8">
+          <span class="badge badge-red mb-3">125 cm³</span>
+          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Formation 125</h3>
+          <p class="text-sm text-gray-600 mb-4">7 heures de formation obligatoires pour conduire une 125 cm³ avec un permis B obtenu depuis plus de 2 ans.</p>
+          <div class="forfait-price mb-2">280 €</div>
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-heading">Formation 7h</p>
         </div>
 
-        <div class="forfait-card p-6">
-          <span class="badge">Passerelle A2 → A</span>
-          <h3 class="font-heading text-xl font-bold uppercase mt-3 mb-2">Formation A2 vers A</h3>
-          <p class="text-sm text-gray-600 mb-3">Après 2 ans de permis A2, accédez à toutes les cylindrées avec cette formation passerelle de 7h.</p>
-          <div class="forfait-price text-3xl">280 €</div>
-          <p class="text-xs text-gray-500 mt-1">Formation 7h</p>
+        <div class="forfait-card p-8">
+          <span class="badge badge-red mb-3">Passerelle A2 → A</span>
+          <h3 class="font-heading text-2xl font-bold uppercase mt-3 mb-2">Formation A2 vers A</h3>
+          <p class="text-sm text-gray-600 mb-4">Après 2 ans de permis A2, accédez à toutes les cylindrées avec cette formation passerelle de 7h.</p>
+          <div class="forfait-price mb-2">280 €</div>
+          <p class="text-xs text-gray-500 uppercase tracking-wider font-heading">Formation 7h</p>
         </div>
 
       </div>
@@ -1299,10 +1363,6 @@
         Nous vérifions systématiquement l'équipement avant chaque cours pour votre sécurité.
       </div>
 
-      <div class="mt-6 max-w-4xl mx-auto bg-villars-black text-white p-5 text-sm">
-        <span class="badge badge-red mb-2">Point de RDV pratique</span>
-        <p class="mt-2">Les leçons pratiques 2 roues démarrent au <strong>73 rue Barbusse, 59220 Denain</strong>.</p>
-      </div>
     </div>
   </div>
 
@@ -1317,9 +1377,9 @@
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation Journée Défense et Citoyenneté (pour les 17-25 ans)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation de Recensement (pour les moins de 17 ans)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>ASSR (délivrée au collège) — pour les moins de 21 ans</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis…)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie <em>ou 3 timbres au tarif en vigueur</em></span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis d'imposition…)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers <em>ainsi que la pièce d'identité de l'hébergeur</em></span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Copie de votre éventuel permis B</span></li>
         </ul>
       </div>
@@ -1350,9 +1410,13 @@
   <!-- FORFAIT BE -->
   <div class="bg-white py-10 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start reveal">
-        <div class="bg-villars-gray">
-          <img src="images/skoda-kodiaq.png" alt="Skoda Kodiaq — Auto-école Villars" class="w-full h-80 object-cover" />
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch reveal">
+        <div class="h-80">
+          <div class="photo-placeholder h-full">
+            <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
+            <span>Photo Forfait BE</span>
+            <small>à fournir par le client</small>
+          </div>
         </div>
         <div class="forfait-card p-8">
           <span class="badge badge-red mb-3">Permis BE</span>
@@ -1390,7 +1454,7 @@
         <div class="schema-row">
           <div class="schema-cond">
             <strong class="font-heading uppercase text-sm tracking-wider">Cas 1 — Remorque légère</strong>
-            <p class="mt-1 text-sm text-gray-700">PTAC remorque ≤ <strong>750 kg</strong> (peu importe le véhicule tracteur)</p>
+            <p class="mt-1 text-sm text-gray-700">PTAC remorque ≤ <strong>750 kg</strong></p>
           </div>
           <div class="schema-result">Permis B suffit</div>
         </div>
@@ -1399,7 +1463,7 @@
           <div class="schema-cond">
             <strong class="font-heading uppercase text-sm tracking-wider">Cas 2 — Petit ensemble</strong>
             <p class="mt-1 text-sm text-gray-700">
-              PTAC remorque &gt; 750 kg <strong>et</strong> (PTAC voiture + PTAC remorque) ≤ <strong>3 500 kg</strong>
+              PTAC remorque <strong>entre 750 et 3 500 kg</strong> <strong>et</strong> (PTAC voiture + PTAC remorque) ≤ <strong>3 500 kg</strong>
             </p>
           </div>
           <div class="schema-result">Permis B suffit</div>
@@ -1409,18 +1473,17 @@
           <div class="schema-cond">
             <strong class="font-heading uppercase text-sm tracking-wider">Cas 3 — Ensemble intermédiaire</strong>
             <p class="mt-1 text-sm text-gray-700">
-              PTAC remorque &gt; 750 kg <strong>et</strong> (PTAC voiture + PTAC remorque) entre <strong>3 500 kg</strong> et <strong>4 250 kg</strong>
+              PTAC remorque <strong>entre 750 et 3 500 kg</strong> <strong>et</strong> (PTAC voiture + PTAC remorque) entre <strong>3 500 kg</strong> et <strong>4 250 kg</strong>
             </p>
           </div>
-          <div class="schema-result red">Permis B96 (7h)</div>
+          <div class="schema-result red">Formation B96</div>
         </div>
 
         <div class="schema-row">
           <div class="schema-cond">
             <strong class="font-heading uppercase text-sm tracking-wider">Cas 4 — Grand ensemble</strong>
             <p class="mt-1 text-sm text-gray-700">
-              PTAC remorque &gt; 750 kg <strong>et</strong> (PTAC voiture + PTAC remorque) &gt; <strong>4 250 kg</strong>
-              (jusqu'à 3T500 PTAC remorque)
+              PTAC remorque <strong>entre 750 et 3 500 kg</strong> <strong>et</strong> (PTAC voiture + PTAC remorque) &gt; <strong>4 250 kg</strong>
             </p>
           </div>
           <div class="schema-result red">Permis BE requis</div>
@@ -1441,9 +1504,9 @@
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span><strong>2 photos E-Photo</strong> (signature obligatoire)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Carte Nationale d'Identité (recto-verso)</span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Copie de votre permis B</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis…)</span></li>
-          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Lettre suivie <em>ou 3 timbres au tarif en vigueur</em></span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Justificatif de domicile de moins de 6 mois (facture EDF, eau, téléphone, avis d'imposition…)</span></li>
+          <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation d'hébergement si vous habitez chez un tiers <em>ainsi que la pièce d'identité de l'hébergeur</em></span></li>
           <li class="flex items-start gap-3"><span class="check-icon mt-1">✓</span><span>Attestation Journée Défense et Citoyenneté</span></li>
         </ul>
       </div>
@@ -1624,14 +1687,6 @@
     </div>
   </div>
 
-  <!-- POINT RDV -->
-  <div class="bg-villars-black text-white py-10 md:py-12">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="badge badge-red mb-3">Point de RDV pratique</span>
-      <h3 class="font-heading text-2xl md:text-3xl uppercase font-bold mt-3">73 rue Barbusse, 59220 Denain</h3>
-      <p class="text-gray-300 mt-3">Toutes les leçons pratiques (voiture, moto, BE) démarrent depuis ce point de rendez-vous.</p>
-    </div>
-  </div>
 
 </section>
 
