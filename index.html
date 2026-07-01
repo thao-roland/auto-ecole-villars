@@ -362,6 +362,80 @@
     line-height: 1;
   }
   .avis-stars { color: #F5B400; letter-spacing: 2px; }
+  /* Vehicle slider (multi-photos) */
+  .vehicle-slider {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #F5F5F5;
+  }
+  .slider-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease;
+  }
+  .slider-img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    display: block;
+  }
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26,26,26,0.75);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+    transition: background 0.15s ease;
+  }
+  .slider-btn:hover { background: #CC1F1F; }
+  .slider-prev { left: 8px; }
+  .slider-next { right: 8px; }
+  .slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+  }
+  .slider-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(26,26,26,0.3);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .slider-dot:hover { transform: scale(1.15); }
+  .slider-dot.active { background: #CC1F1F; border-color: #CC1F1F; }
+  .slider-count {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(26,26,26,0.75);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 3;
+  }
+
   /* Photo placeholder — cadre vide "photo a venir" */
   .photo-placeholder {
     display: flex;
@@ -1553,8 +1627,26 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
 
         <div class="vehicle-tile">
-          <div class="h-56 overflow-hidden bg-villars-gray">
-            <img src="images/clio.png" alt="Renault Clio" class="w-full h-full object-cover" />
+          <div class="h-56 overflow-hidden">
+            <div class="vehicle-slider" data-slider>
+              <div class="slider-track">
+                <img src="images/clio.png" alt="Renault Clio 1" class="slider-img" />
+                <img src="images/clio2.png" alt="Renault Clio 2" class="slider-img" />
+                <img src="images/clio3.png" alt="Renault Clio 3" class="slider-img" />
+              </div>
+              <button type="button" class="slider-btn slider-prev" aria-label="Photo précédente">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <button type="button" class="slider-btn slider-next" aria-label="Photo suivante">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+              </button>
+              <div class="slider-count"><span class="slider-current">1</span> / 3</div>
+              <div class="slider-dots">
+                <button type="button" class="slider-dot active" aria-label="Photo 1"></button>
+                <button type="button" class="slider-dot" aria-label="Photo 2"></button>
+                <button type="button" class="slider-dot" aria-label="Photo 3"></button>
+              </div>
+            </div>
           </div>
           <div class="p-5 border-l-4 border-villars-red">
             <span class="badge">Boîte manuelle</span>
@@ -2142,6 +2234,39 @@
     document.getElementById('formSuccess').classList.remove('hidden');
     form.reset();
     document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // Vehicle sliders init
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+    const track = slider.querySelector('.slider-track');
+    const imgs = slider.querySelectorAll('.slider-img');
+    const dots = slider.querySelectorAll('.slider-dot');
+    const currentSpan = slider.querySelector('.slider-current');
+    let index = 0;
+    function update() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      if (currentSpan) currentSpan.textContent = index + 1;
+    }
+    const prev = slider.querySelector('.slider-prev');
+    const next = slider.querySelector('.slider-next');
+    if (prev) prev.addEventListener('click', (e) => {
+      e.preventDefault();
+      index = (index - 1 + imgs.length) % imgs.length;
+      update();
+    });
+    if (next) next.addEventListener('click', (e) => {
+      e.preventDefault();
+      index = (index + 1) % imgs.length;
+      update();
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        index = i;
+        update();
+      });
+    });
   });
 
   loadFromHash();
