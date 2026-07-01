@@ -362,6 +362,43 @@
     line-height: 1;
   }
   .avis-stars { color: #F5B400; letter-spacing: 2px; }
+  /* Formation card auto-slider (fade) */
+  .formation-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #F5F5F5;
+  }
+  .formation-slider img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .formation-slider img.active { opacity: 1; }
+  .formation-slider-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 2;
+  }
+  .formation-slider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(0,0,0,0.2);
+    transition: background 0.3s ease;
+  }
+  .formation-slider-dot.active { background: #CC1F1F; border-color: #CC1F1F; }
+
   /* Vehicle slider (multi-photos) */
   .vehicle-slider {
     position: relative;
@@ -1082,10 +1119,15 @@
 
         <a href="#" data-page="permis-b" class="page-link formation-card flex flex-col">
           <div class="h-56 overflow-hidden">
-            <div class="photo-placeholder">
-              <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
-              <span>Photo Permis B</span>
-              <small>à fournir par le client</small>
+            <div class="formation-slider" data-formation-slider>
+              <img src="images/clio.png" alt="Renault Clio" class="active" />
+              <img src="images/swift.png" alt="Suzuki Swift" />
+              <img src="images/clio2.png" alt="Renault Clio 2" />
+              <div class="formation-slider-dots">
+                <span class="formation-slider-dot active"></span>
+                <span class="formation-slider-dot"></span>
+                <span class="formation-slider-dot"></span>
+              </div>
             </div>
           </div>
           <div class="p-6 flex-1 flex flex-col">
@@ -1098,10 +1140,19 @@
 
         <a href="#" data-page="permis-2-roues" class="page-link formation-card flex flex-col">
           <div class="h-56 overflow-hidden">
-            <div class="photo-placeholder">
-              <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
-              <span>Photo Formations 2 Roues</span>
-              <small>à fournir par le client</small>
+            <div class="formation-slider" data-formation-slider>
+              <img src="images/kawasaki-z400.png" alt="Kawasaki Z400" class="active" />
+              <img src="images/honda-cbf125.png" alt="Honda CBF 125" />
+              <img src="images/indian.png" alt="Indian" />
+              <img src="images/scooter-niu.png" alt="Scooter NIU" />
+              <img src="images/citroen-ami.png" alt="Citroën AMI" />
+              <div class="formation-slider-dots">
+                <span class="formation-slider-dot active"></span>
+                <span class="formation-slider-dot"></span>
+                <span class="formation-slider-dot"></span>
+                <span class="formation-slider-dot"></span>
+                <span class="formation-slider-dot"></span>
+              </div>
             </div>
           </div>
           <div class="p-6 flex-1 flex flex-col">
@@ -1114,10 +1165,15 @@
 
         <a href="#" data-page="permis-be" class="page-link formation-card flex flex-col">
           <div class="h-56 overflow-hidden">
-            <div class="photo-placeholder">
-              <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-2h6l2 2h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="14" r="4"/></svg>
-              <span>Photo Permis BE</span>
-              <small>à fournir par le client</small>
+            <div class="formation-slider" data-formation-slider>
+              <img src="images/skoda-kodiaq.png" alt="Skoda Kodiaq" class="active" />
+              <img src="images/remorque.png" alt="Remorque Fourgon" />
+              <img src="images/remorque2.png" alt="Remorque" />
+              <div class="formation-slider-dots">
+                <span class="formation-slider-dot active"></span>
+                <span class="formation-slider-dot"></span>
+                <span class="formation-slider-dot"></span>
+              </div>
             </div>
           </div>
           <div class="p-6 flex-1 flex flex-col">
@@ -2250,6 +2306,21 @@
     document.getElementById('formSuccess').classList.remove('hidden');
     form.reset();
     document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // Formation card auto-sliders (fade)
+  document.querySelectorAll('[data-formation-slider]').forEach(slider => {
+    const imgs = slider.querySelectorAll('img');
+    const dots = slider.querySelectorAll('.formation-slider-dot');
+    if (imgs.length < 2) return;
+    let index = 0;
+    setInterval(() => {
+      imgs[index].classList.remove('active');
+      if (dots[index]) dots[index].classList.remove('active');
+      index = (index + 1) % imgs.length;
+      imgs[index].classList.add('active');
+      if (dots[index]) dots[index].classList.add('active');
+    }, 3200);
   });
 
   // Vehicle sliders init
