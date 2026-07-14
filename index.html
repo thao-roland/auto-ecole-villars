@@ -2296,13 +2296,7 @@
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
   }
 
-  document.getElementById('contactForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const form = e.target;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+  function buildContactMailUrls() {
     const val = (id) => (document.getElementById(id).value || '').trim();
     const nom       = val('nom');
     const prenom    = val('prenom');
@@ -2337,18 +2331,39 @@ ${prenom} ${nom}`;
 
     const to = 'autoecolevillars@orange.fr';
     const enc = encodeURIComponent;
-    const mailtoUrl = `mailto:${to}?subject=${enc(subject)}&body=${enc(body)}`;
-    const gmailUrl  = `https://mail.google.com/mail/?view=cm&fs=1&to=${enc(to)}&su=${enc(subject)}&body=${enc(body)}`;
+    return {
+      mailto: `mailto:${to}?subject=${enc(subject)}&body=${enc(body)}`,
+      gmail:  `https://mail.google.com/mail/?view=cm&fs=1&to=${enc(to)}&su=${enc(subject)}&body=${enc(body)}`
+    };
+  }
 
-    // Ouvre Gmail dans un nouvel onglet (si l'utilisateur est connecte).
-    // Fallback : mailto (client mail par defaut) si le popup est bloque.
-    const win = window.open(gmailUrl, '_blank');
-    if (!win) {
-      window.location.href = mailtoUrl;
+  // Bouton principal : ouvre Gmail (via un vrai lien clique, contourne les popup blockers)
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
     }
+    const urls = buildContactMailUrls();
+    // Cree un vrai lien <a> et le clique — contourne les popup blockers
+    const a = document.createElement('a');
+    a.href = urls.gmail;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 
-    document.getElementById('formSuccess').classList.remove('hidden');
-    document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Affiche aussi le message avec les 2 liens (Gmail + mailto) en cas de blocage
+    const success = document.getElementById('formSuccess');
+    success.innerHTML = `Votre message est prêt à être envoyé.
+      <div class="mt-3 flex flex-wrap gap-2">
+        <a href="${urls.gmail}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding:0.5rem 1rem; font-size:0.85rem;">Ouvrir dans Gmail</a>
+        <a href="${urls.mailto}" class="btn-outline" style="padding:0.5rem 1rem; font-size:0.85rem;">Ouvrir dans mon client mail</a>
+      </div>`;
+    success.classList.remove('hidden');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 
   // Formation card auto-sliders (fade)
